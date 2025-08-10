@@ -55,7 +55,11 @@ export default function Footer({ onShowAdmin }: FooterProps) {
         <div className="grid lg:grid-cols-4 gap-8">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <i className="fas fa-home text-church-amber text-2xl"></i>
+              <img 
+                src="/smt-logo.jpg" 
+                alt="St Matt's Logo" 
+                className="w-8 h-8 rounded-full object-cover"
+              />
               <span className="font-bold text-white text-xl">St Matt's Kāinga</span>
             </div>
             
