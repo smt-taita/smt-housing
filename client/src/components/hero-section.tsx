@@ -75,8 +75,7 @@ export default function HeroSection() {
               
               <Button 
                 onClick={playHeroVideo}
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-church-blue transition-all px-8 py-4 rounded-xl font-semibold text-lg"
+                className="bg-white bg-opacity-20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-church-blue transition-all px-8 py-4 rounded-xl font-semibold text-lg"
               >
                 <i className="fas fa-play mr-2"></i>Watch Our Story
               </Button>

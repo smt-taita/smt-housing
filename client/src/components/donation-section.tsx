@@ -170,13 +170,13 @@ export default function DonationSection() {
                       value={form.watch("frequency")} 
                       onValueChange={(value) => form.setValue("frequency", value as any)}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="bg-white border-slate-300 text-slate-900 focus:border-church-blue focus:ring-church-blue">
                         <SelectValue placeholder="Select frequency" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="monthly">Monthly</SelectItem>
-                        <SelectItem value="annual">Annual</SelectItem>
-                        <SelectItem value="one-time">One-time</SelectItem>
+                      <SelectContent className="bg-white border border-slate-200 shadow-lg">
+                        <SelectItem value="monthly" className="text-slate-900 hover:bg-church-blue hover:text-white focus:bg-church-blue focus:text-white">Monthly</SelectItem>
+                        <SelectItem value="annual" className="text-slate-900 hover:bg-church-blue hover:text-white focus:bg-church-blue focus:text-white">Annual</SelectItem>
+                        <SelectItem value="one-time" className="text-slate-900 hover:bg-church-blue hover:text-white focus:bg-church-blue focus:text-white">One-time</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
