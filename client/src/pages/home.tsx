@@ -26,7 +26,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <i className="fas fa-home text-church-blue text-xl"></i>
+              <img src="/smt-logo.jpg" alt="St Matt's Logo" className="h-8 w-8 object-contain" />
               <span className="font-semibold text-slate-900 text-lg">St Matt's Kāinga</span>
             </div>
             

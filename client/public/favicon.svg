@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- House outline -->
+  <path d="M6 28V16L16 6L26 16V28H20V20H12V28H6Z" fill="#3b82f6" stroke="#1e40af" stroke-width="1.5" stroke-linejoin="round"/>
+  
+  <!-- Heart -->
+  <path d="M16 18C16 18 20 14.5 20 12C20 10 18.5 9 16.5 9C16 9 16 9 16 9S16 9 15.5 9C13.5 9 12 10 12 12C12 14.5 16 18 16 18Z" fill="#f59e0b" stroke="#d97706" stroke-width="1"/>
+</svg>
