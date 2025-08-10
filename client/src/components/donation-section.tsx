@@ -123,16 +123,16 @@ export default function DonationSection() {
                   </div>
                 )}
                 <CardContent className="p-6 text-center">
-                  <div className={`text-2xl font-bold mb-2 ${option.preferred ? 'text-white' : 'text-church-blue'}`}>
+                  <div className={`text-2xl font-bold mb-2 ${option.preferred ? 'text-slate-900' : 'text-church-blue'}`}>
                     ${option.amount}
                   </div>
-                  <div className={`mb-3 ${option.preferred ? 'text-amber-100' : 'text-slate-600'}`}>
+                  <div className={`mb-3 ${option.preferred ? 'text-slate-700' : 'text-slate-600'}`}>
                     per month
                   </div>
-                  <div className={`text-sm ${option.preferred ? 'text-amber-100' : 'text-slate-500'}`}>
+                  <div className={`text-sm ${option.preferred ? 'text-slate-600' : 'text-slate-500'}`}>
                     ${option.annual}/year
                   </div>
-                  <div className={`text-sm mt-2 font-medium ${option.preferred ? 'text-white' : 'text-church-green'}`}>
+                  <div className={`text-sm mt-2 font-medium ${option.preferred ? 'text-slate-800' : 'text-church-green'}`}>
                     {option.label}
                   </div>
                 </CardContent>
