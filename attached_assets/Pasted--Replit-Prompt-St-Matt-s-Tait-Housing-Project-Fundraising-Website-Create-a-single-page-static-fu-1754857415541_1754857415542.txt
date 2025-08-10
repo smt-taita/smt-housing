@@ -1,0 +1,248 @@
+# Replit Prompt: St Matt's Taitā Housing Project Fundraising Website
+
+Create a single-page static fundraising website for the St Matt's Taitā Housing Project using HTML, CSS, and JavaScript. This is a church-led affordable housing initiative in New Zealand that needs ongoing funding support.
+
+## Project Overview
+**Campaign:** St Matt's Taitā Community Housing Project  
+**Goal:** Raise $24,000 annually to maintain affordable rent subsidies  
+**Urgency:** Early subsidies end in early 2026  
+**Target:** 20 donors at $100/month (or equivalent combinations)  
+**Audience:** Wider Anglican church networks and community supporters
+
+## Design Requirements
+
+### Visual Style
+- **Tone:** Warm, hopeful, professional but approachable
+- **Colors:** Use warm, welcoming colors with Anglican church sensibilities
+  - Primary: Deep blue or green (trust/stability)
+  - Accent: Warm orange or gold (hope/community)
+  - Supporting: Soft grays and whites
+- **Typography:** Clean, readable fonts that work well in both English and te reo Māori
+- **Layout:** Mobile-first responsive design
+
+### Key Sections (in order)
+
+#### 1. Hero Section
+- **Headline:** "St Matt's Kāinga - More Than Housing, We're Building Community"
+- **Subheading:** "Help us keep 8 warm, dry homes affordable for families in need"
+- **Hero video embed:** Responsive video player (YouTube/Vimeo ready) with fallback hero image
+- **Video overlay:** Play button and "Watch Our Story" text
+- **Primary CTA:** Large "Support Our Community" button
+- **Visual progress bar:** "$X raised of $24,000 annual goal"
+
+#### 2. The Story Section
+**Title:** "A Village of Welcome"
+**Content:** 
+- Brief story of transformation from "patch of grass" to thriving community
+- Mention: 8 homes (1x 4-bed, 3x 2-bed, 4x 1-bed)
+- Residents: families, former refugee, people from transitional housing
+- Two church leaders living onsite as community catalysts
+- Part of Anglican Diocese Bedrock Housing initiative
+
+#### 3. The Challenge Section
+**Title:** "Why We Need Your Help"
+**Content:**
+- Early subsidies ending in early 2026
+- $24,000 needed annually for rent relief
+- Focus on one-bedroom units for lowest-income tenants
+- Without support, some residents may need to leave
+- Urgency: fundraising needed by January 2026
+
+#### 4. How to Help Section
+**Title:** "Join Our Village of Support"
+**Donation options with clear buttons:**
+- $20/month ($240/year)
+- $50/month ($600/year) 
+- $100/month ($1,200/year) - marked as "Preferred"
+- $200/month ($2,400/year)
+- Custom amount option
+- One-time donation option
+
+**Additional ways to help:**
+- Prayer support
+- Volunteer skills
+- Share with networks
+- Church/workplace partnerships
+
+#### 5. Impact & Transparency
+**Title:** "Your Impact"
+- Tax-deductible status (33.33% IRD tax credit in NZ)
+- Quarterly updates promise
+- Managed by St Matt's Taitā Church Committee
+- Contact: housing@stmattstaita.org.nz
+
+#### 6. FAQ Section (Collapsible)
+Include key FAQ points:
+- What is the project?
+- Who lives there?
+- Why ongoing donations needed?
+- How much should I give?
+- Is it tax-deductible?
+- Will I receive updates?
+
+#### 7. Footer
+- Contact information
+- Anglican Diocese of Wellington connection
+- "More than homes—we're building hope"
+
+## Functional Requirements
+
+### Donation Processing
+- **Payment integration:** Create form structure ready for Stripe/PayPal integration
+- **Recurring donation options:** Monthly giving emphasized
+- **One-time donations:** Also available
+- **Donation amount buttons:** Pre-set amounts with custom option
+- **Form fields:** Name, email, phone, donation amount, frequency, message (optional)
+
+### Progress Tracking & Campaign Management
+
+#### Real-Time Progress Display
+- **Dynamic progress bar:** Visual representation of campaign progress
+- **Multiple metrics display:**
+  - Total raised vs $24,000 annual goal
+  - Number of donors/supporters
+  - Percentage complete
+  - Monthly recurring commitments secured
+  - Time remaining until subsidy deadline (January 2026)
+
+#### Data Source Integration
+**Automated Online Tracking:**
+- **Payment processor integration:** Automatic updates from Stripe/PayPal
+- **API endpoints:** Ready for webhook integration from donation platforms
+- **Real-time updates:** Progress bar updates immediately after online donations
+
+**Manual Admin Updates:**
+- **Admin dashboard:** Simple, secure admin panel for manual updates
+- **Offline donation tracking:** Easy form to add:
+  - Donor name (optional/anonymous)
+  - Amount pledged
+  - Frequency (one-time, monthly, annual)
+  - Date received
+  - Notes field
+- **Bulk import:** CSV upload capability for multiple offline pledges
+- **Edit/delete:** Ability to modify or remove entries if needed
+
+#### Campaign Analytics Dashboard
+**Admin-only section with:**
+- **Fundraising velocity:** Daily/weekly progress charts
+- **Donor breakdown:** Online vs offline contributions
+- **Recurring vs one-time:** Monthly commitment tracking
+- **Geographic data:** Where supporters are located (if collected)
+- **Average donation:** Statistical insights
+- **Export functionality:** Download supporter data for thank-you communications
+
+#### Public Progress Features
+- **Live counter:** Updates every few seconds
+- **Recent activity:** "Recent supporters" section (privacy-conscious)
+- **Milestone celebrations:** Visual celebrations at 25%, 50%, 75% complete
+- **Social sharing of progress:** "We're at 60% - help us reach our goal!"
+- **Urgency indicators:** "Only $X remaining to secure housing for 2025"
+
+### Social Sharing
+- **Share buttons:** Facebook, email, WhatsApp (popular in NZ)
+- **Pre-written social text:** "Help St Matt's Taitā keep affordable homes available for families in need"
+- **Shareable images:** Space for campaign graphics
+
+### Contact & Engagement
+- **Email signup:** Newsletter/updates list
+- **Contact form:** Questions and partnership inquiries
+- **Email link:** Direct link to housing@stmattstaita.org.nz
+
+## Technical Specifications
+
+### Video Handling
+- **Responsive embeds:** CSS that scales video perfectly across devices
+- **Platform agnostic:** Easy switching between YouTube, Vimeo, or self-hosted
+- **Performance optimized:** Video doesn't slow down page loading
+- **Accessibility:** Proper ARIA labels and keyboard controls
+
+### Performance
+- **Fast loading:** Optimized images and minimal JavaScript
+- **Mobile responsive:** Works perfectly on phones/tablets
+- **Accessibility:** WCAG 2.1 AA compliance
+- **SEO optimized:** Meta tags, structured data
+
+### Content Management & Data Updates
+- **Campaign progress:** JSON file structure for easy manual updates
+- **Admin authentication:** Simple password-protected admin area
+- **Data persistence:** Local storage with backup/export options
+- **Manual override:** Admin can adjust totals for offline donations
+- **Progress history:** Track campaign momentum over time
+
+### Analytics Ready
+- **Google Analytics:** Code structure ready for tracking
+- **Conversion tracking:** Form submission events
+- **Social tracking:** Share button interactions
+
+## Content Tone & Voice
+- **Warm and inviting:** Community-focused language
+- **Hopeful not desperate:** Emphasis on positive impact
+- **Specific and concrete:** Clear about what donations achieve
+- **Faith-integrated:** Naturally include Christian values without being preachy
+- **New Zealand appropriate:** Include te reo Māori greetings naturally
+
+## Data Structure Requirements
+
+### Campaign Tracking JSON Structure
+```json
+{
+  "campaign": {
+    "goal": 24000,
+    "currency": "NZD",
+    "startDate": "2024-11-01",
+    "endDate": "2025-12-31",
+    "totalRaised": 0,
+    "onlineTotal": 0,
+    "offlineTotal": 0,
+    "donorCount": 0,
+    "monthlyCommitments": 0,
+    "lastUpdated": "2024-11-01T00:00:00Z"
+  },
+  "donations": [
+    {
+      "id": "unique-id",
+      "amount": 100,
+      "frequency": "monthly|one-time|annual",
+      "source": "online|offline",
+      "date": "2024-11-01",
+      "anonymous": false,
+      "name": "Supporter Name"
+    }
+  ]
+}
+```
+
+### Admin Interface Requirements
+- **Simple login:** Username/password protection for admin functions
+- **Update forms:** Easy forms for adding offline donations
+- **Data validation:** Ensure accurate data entry
+- **Progress preview:** See how changes affect public display
+- **Backup functionality:** Export/import campaign data
+
+## Technical Stack
+- **HTML5:** Semantic structure
+- **CSS3:** Modern responsive design with Flexbox/Grid
+- **Vanilla JavaScript:** For interactions, no heavy frameworks
+- **Font Awesome:** For icons
+- **Google Fonts:** For typography
+
+## Key Features to Include
+1. **Hero video player:** Professional video embedding with custom controls
+2. **Sticky donation button:** Follows user as they scroll
+3. **Progress visualization:** Compelling visual showing fundraising progress
+4. **Story testimonials:** Space for resident stories (maintaining privacy)
+5. **Community photos:** Gallery section for project images
+6. **Urgency indicators:** Countdown or timeline showing subsidy end date
+7. **Trust signals:** Anglican Diocese branding, transparency information
+8. **Video sharing:** Easy sharing of the campaign video on social media
+
+## Launch Preparation
+- **Campaign data setup:** Initialize tracking with starting values
+- **Admin credentials:** Set up secure admin access
+- **Testing checklist:** Include cross-browser compatibility notes
+- **Payment integration:** Instructions for connecting automated tracking
+- **Manual update training:** Guide for staff to add offline donations
+- **Analytics setup:** Guide for adding tracking codes
+- **Backup procedures:** Regular data export recommendations
+
+Create a complete, professional fundraising website that effectively communicates the urgent need while maintaining the warm, community-focused tone of this faith-based housing initiative.
