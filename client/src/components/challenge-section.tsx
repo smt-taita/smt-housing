@@ -19,7 +19,7 @@ export default function ChallengeSection() {
             <h3 className="text-xl font-semibold text-slate-900 mb-4">Time is Running Out</h3>
             <p className="text-slate-600">
               Early subsidies end in <strong>early 2026</strong>. We need to secure ongoing funding 
-              by January 2026 to keep homes affordable.
+              by September 30, 2025 to keep homes affordable.
             </p>
           </div>
           
@@ -65,7 +65,7 @@ export default function ChallengeSection() {
                   <i className="fas fa-check text-white text-sm"></i>
                 </div>
                 <div>
-                  <div className="font-medium text-slate-900">November 2024 - Campaign Launch</div>
+                  <div className="font-medium text-slate-900">January 2025 - Campaign Launch</div>
                   <div className="text-slate-600">Begin fundraising for ongoing subsidies</div>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function ChallengeSection() {
                   <div className="bg-white rounded-full w-2 h-2"></div>
                 </div>
                 <div>
-                  <div className="font-medium text-slate-900">January 2026 - Critical Deadline</div>
+                  <div className="font-medium text-slate-900">September 30, 2025 - Critical Deadline</div>
                   <div className="text-slate-600">Must secure $24,000 annual commitment</div>
                 </div>
               </div>

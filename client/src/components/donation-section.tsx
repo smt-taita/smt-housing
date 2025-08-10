@@ -84,25 +84,7 @@ export default function DonationSection() {
     createDonation.mutate(data);
   };
 
-  const shareOnFacebook = () => {
-    const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent("Help St Matt's Taitā keep affordable homes available for families in need");
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
-    trackEvent('share', 'social', 'facebook');
-  };
 
-  const shareViaEmail = () => {
-    const subject = encodeURIComponent("St Matt's Kāinga - Community Housing Project");
-    const body = encodeURIComponent("I wanted to share this important fundraising campaign with you. St Matt's Taitā is working to keep 8 homes affordable for families in need. Learn more: " + window.location.href);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
-    trackEvent('share', 'social', 'email');
-  };
-
-  const shareOnWhatsApp = () => {
-    const text = encodeURIComponent("Help St Matt's Taitā keep affordable homes available for families in need: " + window.location.href);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-    trackEvent('share', 'social', 'whatsapp');
-  };
 
   return (
     <section id="help" className="py-20 bg-white">
@@ -300,15 +282,7 @@ export default function DonationSection() {
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl">
-                <div className="bg-church-green bg-opacity-20 rounded-lg p-3">
-                  <i className="fas fa-tools text-church-green"></i>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900">Volunteer Skills</h4>
-                  <p className="text-slate-600">Offer maintenance, gardening, or community-building support.</p>
-                </div>
-              </div>
+
               
               <div className="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl">
                 <div className="bg-church-amber bg-opacity-20 rounded-lg p-3">
@@ -332,29 +306,8 @@ export default function DonationSection() {
             </div>
           </div>
           
-          {/* Social Sharing */}
+          {/* Testimonial */}
           <div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Share Our Story</h3>
-            
-            <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 mb-6">
-              <p className="text-slate-700 mb-4">Help us reach more supporters by sharing on social media:</p>
-              
-              <div className="flex space-x-4">
-                <Button onClick={shareOnFacebook} className="bg-blue-600 hover:bg-blue-700">
-                  <i className="fab fa-facebook-f mr-2"></i>Facebook
-                </Button>
-                
-                <Button onClick={shareViaEmail} className="bg-gray-600 hover:bg-gray-700">
-                  <i className="fas fa-envelope mr-2"></i>Email
-                </Button>
-                
-                <Button onClick={shareOnWhatsApp} className="bg-green-600 hover:bg-green-700">
-                  <i className="fab fa-whatsapp mr-2"></i>WhatsApp
-                </Button>
-              </div>
-            </div>
-            
-            {/* Sample testimonial */}
             <div className="bg-white border-l-4 border-church-green p-6 rounded-lg shadow-sm">
               <blockquote className="text-slate-700 italic mb-4">
                 "Having a stable, affordable home has given our family the foundation we needed 

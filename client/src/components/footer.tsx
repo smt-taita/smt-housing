@@ -47,24 +47,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
     }
   };
 
-  const shareOnFacebook = () => {
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
-    trackEvent('share', 'social', 'facebook_footer');
-  };
 
-  const shareViaEmail = () => {
-    const subject = encodeURIComponent("St Matt's Kāinga - Community Housing Project");
-    const body = encodeURIComponent("I wanted to share this important fundraising campaign with you. St Matt's Taitā is working to keep 8 homes affordable for families in need. Learn more: " + window.location.href);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
-    trackEvent('share', 'social', 'email_footer');
-  };
-
-  const shareOnWhatsApp = () => {
-    const text = encodeURIComponent("Help St Matt's Taitā keep affordable homes available for families in need: " + window.location.href);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-    trackEvent('share', 'social', 'whatsapp_footer');
-  };
 
   return (
     <footer id="contact" className="bg-slate-900 text-slate-300 py-16">
@@ -154,35 +137,13 @@ export default function Footer({ onShowAdmin }: FooterProps) {
               </Button>
             </form>
             
-            <div className="flex space-x-4">
-              <Button 
-                onClick={shareOnFacebook}
-                size="sm"
-                className="bg-blue-600 hover:bg-blue-700 p-3"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button 
-                onClick={shareViaEmail}
-                size="sm"
-                className="bg-slate-600 hover:bg-slate-700 p-3"
-              >
-                <i className="fas fa-envelope"></i>
-              </Button>
-              <Button 
-                onClick={shareOnWhatsApp}
-                size="sm"
-                className="bg-green-600 hover:bg-green-700 p-3"
-              >
-                <i className="fab fa-whatsapp"></i>
-              </Button>
-            </div>
+
           </div>
         </div>
         
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
           <div className="text-slate-400 text-sm">
-            <p>&copy; 2024 St Matt's Taitā. Part of the Anglican Diocese of Wellington.</p>
+            <p>&copy; 2025 St Matt's Kāinga. Part of the Anglican Diocese of Wellington.</p>
           </div>
           
           <div className="flex items-center space-x-4 mt-4 md:mt-0">

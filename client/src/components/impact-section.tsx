@@ -79,7 +79,7 @@ export default function ImpactSection() {
                   <h3 className="text-xl font-semibold text-slate-900">Community Management</h3>
                 </div>
                 <p className="text-slate-700">
-                  The project is carefully managed by the St Matt's Taitā Church Committee, 
+                  The project is carefully managed by the Anglican Diocese of Wellington, 
                   ensuring responsible stewardship of all donations and transparent reporting to supporters.
                 </p>
               </CardContent>
