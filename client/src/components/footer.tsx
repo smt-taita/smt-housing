@@ -148,7 +148,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
           <div className="text-slate-400 text-sm">
             <p>&copy; 2025 St Matt's Kāinga. Part of the Anglican Diocese of Wellington.</p>
-            <p className="mt-1">AI powered tech support provided by Malcolm @ <a href="mailto:malcolm@optimi.co.nz" className="text-church-amber hover:text-amber-400 underline">Optimi</a></p>
+            <p className="mt-1 text-center">AI powered tech support provided by Malcolm @ <a href="mailto:malcolm@optimi.co.nz" className="text-white hover:text-slate-300 underline">Optimi</a></p>
           </div>
           
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
