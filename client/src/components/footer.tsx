@@ -52,7 +52,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
   return (
     <footer id="contact" className="bg-slate-900 text-slate-300 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
@@ -121,28 +121,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
             </ul>
           </div>
           
-          <div>
-            <h4 className="font-semibold text-white mb-4">Connect With Us</h4>
-            
-            {/* Newsletter Signup */}
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 mb-6">
-              <Input
-                {...register("email", { required: true })}
-                type="email"
-                placeholder="Your email for updates"
-                className="bg-slate-800 border-slate-700 text-white placeholder-slate-400 focus:ring-church-amber focus:border-transparent"
-              />
-              <Button 
-                type="submit" 
-                className="w-full bg-church-amber text-white hover:bg-amber-600"
-                disabled={subscribeNewsletter.isPending}
-              >
-                {subscribeNewsletter.isPending ? "Subscribing..." : "Subscribe to Updates"}
-              </Button>
-            </form>
-            
-
-          </div>
+          
         </div>
         
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
