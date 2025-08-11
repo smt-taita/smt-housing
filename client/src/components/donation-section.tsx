@@ -97,7 +97,8 @@ export default function DonationSection() {
           </p>
         </div>
         
-        {/* Donation Options */}
+        {/* Donation Options - Temporarily Hidden */}
+        {false && (
         <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-8 mb-16">
           <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">Monthly Giving Options</h3>
           
@@ -265,6 +266,7 @@ export default function DonationSection() {
             </CardContent>
           </Card>
         </div>
+        )}
         
         {/* Other Ways to Help */}
         <div className="grid lg:grid-cols-2 gap-12">
