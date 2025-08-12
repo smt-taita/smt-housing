@@ -42,8 +42,8 @@ export default function StorySection() {
           
           <div className="space-y-4">
             <img 
-              src="/community-main.jpg" 
-              alt="Community gathering at St Matt's housing project" 
+              src="/community-small2.jpg" 
+              alt="St Matt's Kāinga housing with welcome sign" 
               className="rounded-xl shadow-lg w-full h-80 object-cover"
             />
             
@@ -55,8 +55,8 @@ export default function StorySection() {
               />
               
               <img 
-                src="/community-small2.jpg" 
-                alt="Warm, welcoming homes at St Matt's project" 
+                src="/community-main.jpg" 
+                alt="Community gathering at St Matt's housing project" 
                 className="rounded-lg shadow-md w-full h-32 object-cover"
               />
             </div>
