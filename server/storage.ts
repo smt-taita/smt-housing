@@ -7,12 +7,12 @@ export interface IStorage {
   getDonations(): Promise<Donation[]>;
   getDonationById(id: string): Promise<Donation | undefined>;
   getRecentDonations(limit?: number): Promise<Donation[]>;
-  
+
   // Campaign data methods
   getCampaignData(): Promise<CampaignData>;
   updateCampaignData(data: Partial<InsertCampaignData>): Promise<CampaignData>;
   getCampaignSummary(): Promise<CampaignSummary>;
-  
+
   // Admin methods
   updateCampaignProgress(): Promise<void>;
 }
@@ -23,7 +23,7 @@ export class MemStorage implements IStorage {
 
   constructor() {
     this.donations = new Map();
-    
+
     // Initialize campaign data with realistic starting values
     this.campaignData = {
       id: "main",
@@ -31,11 +31,11 @@ export class MemStorage implements IStorage {
       currency: "NZD",
       startDate: new Date("2025-01-01"),
       endDate: new Date("2025-09-30"),
-      totalRaised: "2880.00",
-      onlineTotal: "1440.00",
-      offlineTotal: "1440.00",
-      donorCount: 24,
-      monthlyCommitments: "1440.00",
+      totalRaised: "0.00", // Set initial totalRaised to 0
+      onlineTotal: "0.00",
+      offlineTotal: "0.00",
+      donorCount: 0, // Set initial donorCount to 0
+      monthlyCommitments: "0.00",
       lastUpdated: new Date(),
     };
   }
@@ -55,12 +55,12 @@ export class MemStorage implements IStorage {
       anonymous: insertDonation.anonymous || false,
       receiveUpdates: insertDonation.receiveUpdates || true,
     };
-    
+
     this.donations.set(id, donation);
-    
+
     // Update campaign data
     await this.updateCampaignProgress();
-    
+
     return donation;
   }
 
@@ -97,7 +97,7 @@ export class MemStorage implements IStorage {
     const totalRaised = parseFloat(this.campaignData.totalRaised || "0");
     const monthlyCommitments = parseFloat(this.campaignData.monthlyCommitments || "0");
     const progressPercentage = Math.round((totalRaised / goal) * 100);
-    
+
     // Calculate days remaining until end date
     const now = new Date();
     const endDate = new Date(this.campaignData.endDate);
@@ -115,22 +115,22 @@ export class MemStorage implements IStorage {
 
   async updateCampaignProgress(): Promise<void> {
     const donations = await this.getDonations();
-    
+
     let totalRaised = 0;
     let onlineTotal = 0;
     let offlineTotal = 0;
     let monthlyCommitments = 0;
-    
+
     donations.forEach(donation => {
       const amount = parseFloat(donation.amount);
       totalRaised += amount;
-      
+
       if (donation.source === "online") {
         onlineTotal += amount;
       } else {
         offlineTotal += amount;
       }
-      
+
       if (donation.frequency === "monthly") {
         monthlyCommitments += amount;
       }

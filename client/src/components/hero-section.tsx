@@ -115,14 +115,7 @@ export default function HeroSection() {
               )}
             </div>
             
-            {campaignSummary && (
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-church-blue">{campaignSummary.donorCount}</div>
-                  <div className="text-sm text-slate-600">Supporters</div>
-                </div>
-              </div>
-            )}
+            
           </div>
         </div>
       </div>
