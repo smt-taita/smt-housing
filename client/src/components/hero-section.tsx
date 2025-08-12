@@ -106,7 +106,7 @@ export default function HeroSection() {
                 <div className="w-full h-80 md:h-96">
                   <iframe 
                     className="w-full h-full" 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
+                    src="https://www.youtube.com/embed/9uPdUJL-YHg?autoplay=1" 
                     frameBorder="0" 
                     allowFullScreen
                     title="St Matt's Kāinga Story"
