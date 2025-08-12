@@ -67,10 +67,12 @@ export default function HeroSection() {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                onClick={scrollToHelp}
+                asChild
                 className="bg-church-amber text-white hover:bg-amber-600 transition-all transform hover:scale-105 shadow-lg px-8 py-4 rounded-xl font-semibold text-lg"
               >
-                <i className="fas fa-heart mr-2"></i>Support Our Community
+                <a href="mailto:housing@stmattstaita.org.nz?subject=Donation%20to%20St%20Matt's%20Kāinga&body=Hi,%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20support%20St%20Matt's%20Kāinga.%20Please%20let%20me%20know%20how%20to%20proceed.%0A%0AThank%20you">
+                  <i className="fas fa-heart mr-2"></i>Support Our Community
+                </a>
               </Button>
               
               <Button 

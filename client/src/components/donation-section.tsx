@@ -91,10 +91,29 @@ export default function DonationSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Join Our Village of Support</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
             We need 20 donors giving $100 monthly to reach our goal. Every contribution, 
             large or small, makes a real difference in keeping families housed.
           </p>
+          
+          {/* Temporary donation contact info */}
+          <div className="bg-church-blue bg-opacity-10 rounded-xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-church-blue mb-4">Ready to Support Us?</h3>
+            <p className="text-lg text-slate-700 mb-6">
+              Online payment processing is coming soon. For now, to make a donation, please contact us directly:
+            </p>
+            <Button 
+              asChild
+              className="bg-church-amber text-white hover:bg-amber-600 transition-all transform hover:scale-105 shadow-lg px-8 py-4 rounded-xl font-semibold text-lg"
+            >
+              <a href="mailto:housing@stmattstaita.org.nz?subject=Donation%20to%20St%20Matt's%20Kāinga&body=Hi,%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20support%20St%20Matt's%20Kāinga.%20Please%20let%20me%20know%20how%20to%20proceed.%0A%0AThank%20you">
+                <i className="fas fa-envelope mr-2"></i>Contact Us to Donate
+              </a>
+            </Button>
+            <p className="text-sm text-slate-600 mt-4">
+              <i className="fas fa-envelope mr-2"></i>housing@stmattstaita.org.nz
+            </p>
+          </div>
         </div>
         
         {/* Donation Options - Temporarily Hidden */}
