@@ -97,9 +97,9 @@ export default function DonationSection() {
           </p>
           
           {/* Temporary donation contact info */}
-          <div className="bg-church-blue bg-opacity-10 rounded-xl p-8 max-w-2xl mx-auto">
+          <div className="bg-white rounded-xl p-8 max-w-2xl mx-auto border-2 border-church-blue shadow-lg">
             <h3 className="text-2xl font-bold text-church-blue mb-4">Ready to Support Us?</h3>
-            <p className="text-lg text-slate-700 mb-6">
+            <p className="text-lg text-slate-800 mb-6">
               Online payment processing is coming soon. For now, to make a donation, please contact us directly:
             </p>
             <Button 
@@ -110,8 +110,8 @@ export default function DonationSection() {
                 <i className="fas fa-envelope mr-2"></i>Contact Us to Donate
               </a>
             </Button>
-            <p className="text-sm text-slate-600 mt-4">
-              <i className="fas fa-envelope mr-2"></i>housing@stmattstaita.org.nz
+            <p className="text-sm text-slate-700 mt-4">
+              <i className="fas fa-envelope mr-2 text-church-blue"></i>housing@stmattstaita.org.nz
             </p>
           </div>
         </div>
