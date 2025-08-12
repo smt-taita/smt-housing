@@ -42,20 +42,20 @@ export default function StorySection() {
           
           <div className="space-y-4">
             <img 
-              src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+              src="/community-main.jpg" 
               alt="Community gathering at St Matt's housing project" 
               className="rounded-xl shadow-lg w-full h-80 object-cover"
             />
             
             <div className="grid grid-cols-2 gap-4">
               <img 
-                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
-                alt="Children playing in safe community space" 
+                src="/community-small1.jpg" 
+                alt="St Matt's Kāinga housing community" 
                 className="rounded-lg shadow-md w-full h-32 object-cover"
               />
               
               <img 
-                src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
+                src="/community-small2.jpg" 
                 alt="Warm, welcoming homes at St Matt's project" 
                 className="rounded-lg shadow-md w-full h-32 object-cover"
               />
