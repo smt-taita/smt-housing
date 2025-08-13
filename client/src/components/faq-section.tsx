@@ -40,6 +40,9 @@ export default function FaqSection() {
     <section className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <div className="bg-church-blue bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+            <i className="fas fa-question-circle text-church-blue text-2xl"></i>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-church-blue to-church-green mx-auto rounded-full"></div>
         </div>
