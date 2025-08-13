@@ -58,7 +58,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
               <span className="font-bold text-white text-xl">St Matt's Kāinga</span>
             </div>
             
-            <p className="text-slate-400 mb-6 max-w-md">
+            <p className="text-slate-400 mb-6 max-w-xs">
               More than homes—we're building hope. Supporting affordable housing 
               and strong communities in Taitā, Lower Hutt.
             </p>
