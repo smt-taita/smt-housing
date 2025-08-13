@@ -115,7 +115,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
         </div>
         
         {/* Centered Logo */}
-        <div className="flex justify-center mt-12 mb-8">
+        <div className="flex justify-center mt-8 mb-8">
           <div className="bg-white rounded-full p-6 shadow-lg">
             <img 
               src="/smt-logo.jpg" 
