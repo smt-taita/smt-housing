@@ -38,10 +38,10 @@ export default function StorySection() {
               </div>
               <div className="text-center">
                 <div className="bg-church-green bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                  <i className="fas fa-users text-church-green text-2xl"></i>
+                  <i className="fas fa-home text-church-green text-2xl"></i>
                 </div>
-                <div className="text-3xl font-bold text-church-green mb-2">7</div>
-                <div className="text-slate-600">Lives Impacted</div>
+                <div className="text-3xl font-bold text-church-green mb-2">1</div>
+                <div className="text-slate-600">Unit Secured</div>
               </div>
             </div>
           </div>
