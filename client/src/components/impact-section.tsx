@@ -73,10 +73,10 @@ export default function ImpactSection() {
             <Card>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="bg-church-amber bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center">
-                    <i className="fas fa-users text-church-amber text-xl"></i>
+                  <div className="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center">
+                    <i className="fas fa-users text-green-600 text-xl"></i>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900">Community Management</h3>
+                  <h3 className="text-xl font-semibold text-slate-900">Community Building</h3>
                 </div>
                 <p className="text-slate-700">
                   The project is carefully managed by the Anglican Diocese of Wellington, 
@@ -88,10 +88,10 @@ export default function ImpactSection() {
             <Card>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="bg-indigo-100 rounded-full w-12 h-12 flex items-center justify-center">
-                    <i className="fas fa-hand-holding-heart text-indigo-600 text-xl"></i>
+                  <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                    <i className="fas fa-recycle text-blue-600 text-xl"></i>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900">Anglican Diocese Partnership</h3>
+                  <h3 className="text-xl font-semibold text-slate-900">Sustainable Model</h3>
                 </div>
                 <p className="text-slate-700 mb-4">
                   This project is part of the Anglican Diocese of Wellington's broader 

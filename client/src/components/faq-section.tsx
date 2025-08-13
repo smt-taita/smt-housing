@@ -46,7 +46,7 @@ export default function FaqSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-church-blue to-church-green mx-auto rounded-full"></div>
         </div>
-        
+
         <div className="space-y-4">
           {faqData.map((faq, index) => (
             <Card key={index} className="overflow-hidden">

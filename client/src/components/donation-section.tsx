@@ -38,7 +38,7 @@ export default function DonationSection() {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(100);
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  
+
   const form = useForm<DonationForm>({
     resolver: zodResolver(donationSchema),
     defaultValues: {
@@ -59,15 +59,15 @@ export default function DonationSection() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/campaign/summary"] });
       queryClient.invalidateQueries({ queryKey: ["/api/donations/recent"] });
-      
+
       toast({
         title: "Thank you for your donation!",
         description: "You will be redirected to secure payment processing.",
       });
-      
+
       // Track donation event
       trackEvent('donation_initiated', 'engagement', 'online_form', form.getValues().amount);
-      
+
       // TODO: Redirect to Stripe/PayPal
       console.log("Redirect to payment processor with:", form.getValues());
     },
@@ -92,17 +92,17 @@ export default function DonationSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Join Our Village of Support</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
-            We need 20 donors giving $100 monthly to reach our goal. Every contribution, 
+            We need 20 donors giving $100 monthly to reach our goal. Every contribution,
             large or small, makes a real difference in keeping families housed.
           </p>
-          
+
           {/* Temporary donation contact info */}
           <div className="bg-white rounded-xl p-8 max-w-2xl mx-auto border-2 border-church-blue shadow-lg">
             <h3 className="text-2xl font-bold text-church-blue mb-4">Ready to Support Us?</h3>
             <p className="text-lg text-slate-800 mb-6">
               Online payment processing is coming soon. For now, to make a donation, please contact us directly:
             </p>
-            <Button 
+            <Button
               asChild
               className="bg-church-amber text-white hover:bg-amber-600 transition-all transform hover:scale-105 shadow-lg px-8 py-4 rounded-xl font-semibold text-lg"
             >
@@ -115,21 +115,21 @@ export default function DonationSection() {
             </p>
           </div>
         </div>
-        
+
         {/* Donation Options - Temporarily Hidden */}
         {false && (
         <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-8 mb-16">
           <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">Monthly Giving Options</h3>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {donationOptions.map((option) => (
               <Card
                 key={option.amount}
                 className={`cursor-pointer transition-all hover:shadow-xl relative ${
-                  selectedAmount === option.amount 
-                    ? 'ring-2 ring-church-amber' 
-                    : option.preferred 
-                    ? 'bg-gradient-to-br from-church-amber to-yellow-400 text-white' 
+                  selectedAmount === option.amount
+                    ? 'ring-2 ring-church-amber'
+                    : option.preferred
+                    ? 'bg-gradient-to-br from-church-amber to-yellow-400 text-white'
                     : 'bg-white'
                 }`}
                 onClick={() => {
@@ -159,7 +159,7 @@ export default function DonationSection() {
               </Card>
             ))}
           </div>
-          
+
           {/* Donation Form */}
           <Card>
             <CardContent className="p-8">
@@ -183,11 +183,11 @@ export default function DonationSection() {
                       <p className="text-sm text-red-600 mt-1">{form.formState.errors.amount.message}</p>
                     )}
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="frequency">Frequency</Label>
-                    <Select 
-                      value={form.watch("frequency")} 
+                    <Select
+                      value={form.watch("frequency")}
                       onValueChange={(value) => form.setValue("frequency", value as any)}
                     >
                       <SelectTrigger className="bg-white border-slate-300 text-slate-900 focus:border-church-blue focus:ring-church-blue">
@@ -201,7 +201,7 @@ export default function DonationSection() {
                     </Select>
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <Label htmlFor="donorName">Full Name</Label>
@@ -211,7 +211,7 @@ export default function DonationSection() {
                       placeholder="Your full name"
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="donorEmail">Email</Label>
                     <Input
@@ -225,7 +225,7 @@ export default function DonationSection() {
                     )}
                   </div>
                 </div>
-                
+
                 <div>
                   <Label htmlFor="donorPhone">Phone (Optional)</Label>
                   <Input
@@ -235,7 +235,7 @@ export default function DonationSection() {
                     placeholder="021 123 4567"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="message">Message (Optional)</Label>
                   <Textarea
@@ -245,7 +245,7 @@ export default function DonationSection() {
                     placeholder="Share why you want to support St Matt's Kāinga..."
                   />
                 </div>
-                
+
                 <div className="flex items-center space-x-2">
                   <Checkbox
                     id="anonymous"
@@ -256,7 +256,7 @@ export default function DonationSection() {
                     Make my donation anonymous
                   </Label>
                 </div>
-                
+
                 <div className="flex items-center space-x-2">
                   <Checkbox
                     id="receiveUpdates"
@@ -267,16 +267,16 @@ export default function DonationSection() {
                     Send me quarterly updates about the project
                   </Label>
                 </div>
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   className="w-full bg-church-amber text-white hover:bg-amber-600 py-4 text-lg font-semibold shadow-lg"
                   disabled={createDonation.isPending}
                 >
                   <i className="fas fa-heart mr-2"></i>
                   {createDonation.isPending ? "Processing..." : "Proceed to Payment"}
                 </Button>
-                
+
                 <p className="text-sm text-slate-600 text-center">
                   <i className="fas fa-shield-alt mr-2 text-church-green"></i>
                   Secure payment processing via Stripe. Tax-deductible receipts provided.
@@ -286,12 +286,12 @@ export default function DonationSection() {
           </Card>
         </div>
         )}
-        
-        {/* Other Ways to Help */}
+
+        {/* Other Ways to Support */}
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Other Ways to Support</h3>
-            
+
             <div className="space-y-6">
               <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="bg-church-blue bg-opacity-20 rounded-xl p-3 flex-shrink-0">
@@ -302,7 +302,7 @@ export default function DonationSection() {
                   <p className="text-slate-600">Join our prayer network for residents and the project's future.</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-amber-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="bg-church-amber bg-opacity-20 rounded-xl p-3 flex-shrink-0">
                   <i className="fas fa-share-alt text-church-amber text-lg"></i>
@@ -312,7 +312,7 @@ export default function DonationSection() {
                   <p className="text-slate-600">Help us reach more potential supporters in your community.</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-green-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="bg-church-green bg-opacity-20 rounded-xl p-3 flex-shrink-0">
                   <i className="fas fa-handshake text-church-green text-lg"></i>
@@ -324,12 +324,12 @@ export default function DonationSection() {
               </div>
             </div>
           </div>
-          
+
           {/* Testimonial */}
           <div>
             <div className="bg-white border-l-4 border-church-green p-6 rounded-lg shadow-sm">
               <blockquote className="text-slate-700 italic mb-4">
-                "Having a stable, affordable home has given our family the foundation we needed 
+                "Having a stable, affordable home has given our family the foundation we needed
                 to rebuild our lives. The community here feels like whānau—we look out for each other."
               </blockquote>
               <cite className="text-slate-500 text-sm">— Current resident (name withheld for privacy)</cite>

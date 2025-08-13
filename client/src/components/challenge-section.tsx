@@ -24,8 +24,8 @@ export default function ChallengeSection() {
           </div>
           
           <div className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-            <div className="bg-church-amber bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-              <i className="fas fa-dollar-sign text-church-amber text-2xl"></i>
+            <div className="bg-orange-100 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <i className="fas fa-dollar-sign text-orange-600 text-2xl"></i>
             </div>
             <h3 className="text-xl font-semibold text-slate-900 mb-4">$24,000 Annual Need</h3>
             <p className="text-slate-600">
@@ -35,8 +35,8 @@ export default function ChallengeSection() {
           </div>
           
           <div className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-            <div className="bg-church-blue bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-              <i className="fas fa-home text-church-blue text-2xl"></i>
+            <div className="bg-blue-100 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+              <i className="fas fa-home text-blue-600 text-2xl"></i>
             </div>
             <h3 className="text-xl font-semibold text-slate-900 mb-4">Families at Risk</h3>
             <p className="text-slate-600">
