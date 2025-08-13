@@ -34,7 +34,7 @@ export default function StorySection() {
                 <div className="text-slate-600">Homes Provided</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-church-green mb-2">13</div>
+                <div className="text-3xl font-bold text-church-green mb-2">7</div>
                 <div className="text-slate-600">Lives Impacted</div>
               </div>
             </div>
