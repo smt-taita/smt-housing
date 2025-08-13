@@ -29,7 +29,7 @@ export default function ImpactSection() {
                   <h3 className="text-xl font-semibold text-slate-900">Tax Deductible</h3>
                 </div>
                 <p className="text-slate-700 mb-4">
-                  All donations are tax-deductible in New Zealand. You'll receive a 
+                  All donations are tax-deductible. You'll receive a 
                   <strong> 33.33% IRD tax credit</strong> on your donation amount.
                 </p>
                 <div className="bg-green-50 rounded-lg p-4 border-l-4 border-church-green">
