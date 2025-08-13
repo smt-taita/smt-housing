@@ -121,11 +121,11 @@ export default function Footer({ onShowAdmin }: FooterProps) {
         
         {/* Centered Logo */}
         <div className="flex justify-center mt-12 mb-8">
-          <div className="bg-white rounded-full p-4 shadow-lg">
+          <div className="bg-white rounded-full p-6 shadow-lg">
             <img 
               src="/smt-logo.jpg" 
               alt="St Matt's Logo" 
-              className="w-16 h-16 rounded-full object-cover"
+              className="w-12 h-12 object-contain"
             />
           </div>
         </div>
