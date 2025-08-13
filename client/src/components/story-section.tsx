@@ -45,6 +45,10 @@ export default function StorySection() {
               src="/community-small2.jpg" 
               alt="St Matt's Kāinga housing with welcome sign" 
               className="rounded-xl shadow-lg w-full h-80 object-cover"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="320"
             />
             
             <div className="grid grid-cols-2 gap-4">
@@ -52,12 +56,20 @@ export default function StorySection() {
                 src="/community-small1.jpg" 
                 alt="St Matt's Kāinga housing community" 
                 className="rounded-lg shadow-md w-full h-32 object-cover"
+                loading="lazy"
+                decoding="async"
+                width="400"
+                height="128"
               />
               
               <img 
                 src="/community-main.jpg" 
                 alt="Community gathering at St Matt's housing project" 
                 className="rounded-lg shadow-md w-full h-32 object-cover"
+                loading="lazy"
+                decoding="async"
+                width="400"
+                height="128"
               />
             </div>
           </div>

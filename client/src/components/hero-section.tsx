@@ -93,6 +93,11 @@ export default function HeroSection() {
                     src="/community-main.jpg" 
                     alt="St Matt's housing community" 
                     className="w-full h-80 md:h-96 object-cover"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                    width="800"
+                    height="384"
                   />
                   
                   <div className="absolute inset-0 video-overlay flex items-center justify-center">
