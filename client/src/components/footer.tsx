@@ -94,7 +94,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
           </div>
           
           {/* Right Column - Quick Links */}
-          <div>
+          <div className="text-right">
             <h4 className="font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
