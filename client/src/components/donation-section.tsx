@@ -294,7 +294,7 @@ export default function DonationSection() {
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-church-blue bg-opacity-20 rounded-xl p-3 flex-shrink-0">
+                <div className="bg-church-blue bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                   <i className="fas fa-praying-hands text-church-blue text-lg"></i>
                 </div>
                 <div>
@@ -304,7 +304,7 @@ export default function DonationSection() {
               </div>
 
               <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-amber-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-church-amber bg-opacity-20 rounded-xl p-3 flex-shrink-0">
+                <div className="bg-church-amber bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                   <i className="fas fa-share-alt text-church-amber text-lg"></i>
                 </div>
                 <div>
@@ -314,7 +314,7 @@ export default function DonationSection() {
               </div>
 
               <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-green-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-church-green bg-opacity-20 rounded-xl p-3 flex-shrink-0">
+                <div className="bg-church-green bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                   <i className="fas fa-handshake text-church-green text-lg"></i>
                 </div>
                 <div>
