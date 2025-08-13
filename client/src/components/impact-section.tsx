@@ -17,7 +17,7 @@ export default function ImpactSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Your Impact</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-church-blue to-church-green mx-auto rounded-full"></div>
         </div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <Card>
@@ -39,7 +39,7 @@ export default function ImpactSection() {
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
@@ -68,7 +68,7 @@ export default function ImpactSection() {
               </CardContent>
             </Card>
           </div>
-          
+
           <div className="space-y-8">
             <Card>
               <CardContent className="p-8">
@@ -84,12 +84,12 @@ export default function ImpactSection() {
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center">
-                    <i className="fas fa-church text-purple-600 text-xl"></i>
+                  <div className="bg-indigo-100 rounded-full w-12 h-12 flex items-center justify-center">
+                    <i className="fas fa-hand-holding-heart text-indigo-600 text-xl"></i>
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900">Anglican Diocese Partnership</h3>
                 </div>
@@ -106,7 +106,7 @@ export default function ImpactSection() {
                 </a>
               </CardContent>
             </Card>
-            
+
             {/* Impact Calculator */}
             <div className="bg-gradient-to-br from-church-blue to-church-green rounded-xl p-8 text-white">
               <h3 className="text-xl font-semibold mb-4">Impact Calculator</h3>
