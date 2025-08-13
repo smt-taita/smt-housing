@@ -100,10 +100,10 @@ export default function HeroSection() {
                     height="384"
                   />
                   
-                  <div className="absolute inset-0 video-overlay flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 flex items-center justify-center">
                     <Button
                       onClick={playHeroVideo}
-                      className="bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-full w-20 h-20 hover:bg-opacity-30 transition-all transform hover:scale-110"
+                      className="bg-church-slate bg-opacity-20 backdrop-blur-sm border border-church-slate border-opacity-30 rounded-full w-20 h-20 hover:bg-opacity-30 transition-all transform hover:scale-110"
                     >
                       <i className="fas fa-play text-white text-2xl ml-1"></i>
                     </Button>
