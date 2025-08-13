@@ -125,7 +125,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
             <img 
               src="/smt-logo.jpg" 
               alt="St Matt's Logo" 
-              className="w-12 h-12 object-contain"
+              className="w-24 h-24 object-contain"
             />
           </div>
         </div>
