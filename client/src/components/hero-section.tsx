@@ -43,7 +43,9 @@ export default function HeroSection() {
               <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-30">
                 <div className="flex justify-between items-center mb-4">
                   <span className="font-semibold text-lg">Campaign Progress</span>
-                  <span className="text-church-amber font-bold">{campaignSummary.progressPercentage}%</span>
+                  <span className="bg-church-amber text-church-blue font-bold text-xl px-3 py-1 rounded-full shadow-lg border-2 border-white">
+                    {campaignSummary.progressPercentage}%
+                  </span>
                 </div>
                 
                 <ProgressBar 
