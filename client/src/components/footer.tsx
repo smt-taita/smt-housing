@@ -53,12 +53,13 @@ export default function Footer({ onShowAdmin }: FooterProps) {
     <footer id="contact" className="bg-slate-900 text-slate-300 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
+          {/* Left Column - St Matt's Info */}
+          <div>
             <div className="mb-6">
               <span className="font-bold text-white text-xl">St Matt's Kāinga</span>
             </div>
             
-            <p className="text-slate-400 mb-6 max-w-xs">
+            <p className="text-slate-400 mb-6">
               More than homes—we're building hope. Supporting affordable housing 
               and strong communities in Taitā, Lower Hutt.
             </p>
@@ -81,6 +82,18 @@ export default function Footer({ onShowAdmin }: FooterProps) {
             </div>
           </div>
           
+          {/* Center Column - Logo */}
+          <div className="flex justify-center items-start">
+            <div className="bg-white rounded-full p-6 shadow-lg">
+              <img 
+                src="/smt-logo.jpg" 
+                alt="St Matt's Logo" 
+                className="w-24 h-24 object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Right Column - Quick Links */}
           <div>
             <h4 className="font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -109,19 +122,6 @@ export default function Footer({ onShowAdmin }: FooterProps) {
                 </button>
               </li>
             </ul>
-          </div>
-          
-          
-        </div>
-        
-        {/* Centered Logo */}
-        <div className="flex justify-center mt-8 mb-8">
-          <div className="bg-white rounded-full p-6 shadow-lg">
-            <img 
-              src="/smt-logo.jpg" 
-              alt="St Matt's Logo" 
-              className="w-24 h-24 object-contain"
-            />
           </div>
         </div>
         
