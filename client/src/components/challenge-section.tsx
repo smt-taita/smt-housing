@@ -65,7 +65,7 @@ export default function ChallengeSection() {
                   <i className="fas fa-check text-white text-sm"></i>
                 </div>
                 <div>
-                  <div className="font-medium text-slate-900">January 2025 - Campaign Launch</div>
+                  <div className="font-medium text-slate-900">Campaign launch: August</div>
                   <div className="text-slate-600">Begin fundraising for ongoing subsidies</div>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function ChallengeSection() {
                   <div className="bg-white rounded-full w-2 h-2"></div>
                 </div>
                 <div>
-                  <div className="font-medium text-slate-900">September 30, 2025 - Critical Deadline</div>
+                  <div className="font-medium text-slate-900">Critical deadline: End of October</div>
                   <div className="text-slate-600">Must secure $24,000 annual commitment</div>
                 </div>
               </div>

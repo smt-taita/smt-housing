@@ -78,10 +78,16 @@ export default function ImpactSection() {
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900">Community Building</h3>
                 </div>
-                <p className="text-slate-700">
+                <p className="text-slate-700 mb-4">
                   The project is carefully managed by the Anglican Diocese of Wellington, 
                   ensuring responsible stewardship of all donations and transparent reporting to supporters.
                 </p>
+                <div className="bg-slate-50 rounded-xl p-4 border-l-4 border-church-green">
+                  <blockquote className="text-slate-700 italic mb-2">
+                    "This is what loving your neighbour looks like"
+                  </blockquote>
+                  <cite className="text-slate-500 text-sm">— Rev Caro Willis, Co-Missioner St Matt's Taitā</cite>
+                </div>
               </CardContent>
             </Card>
 
@@ -126,9 +132,7 @@ export default function ImpactSection() {
                   <div className="text-2xl font-bold mb-2">${monthly}/month</div>
                   <div className="text-blue-100">Your annual contribution: ${annual.toLocaleString()}</div>
                   <div className="text-blue-100">Tax credit (33.33%): ${taxCredit.toLocaleString()}</div>
-                  <div className="text-yellow-200 font-semibold mt-2 bg-black bg-opacity-30 rounded-md px-3 py-1">
-                    Helps secure housing for {homesHelped} household{homesHelped > 1 ? 's' : ''}
-                  </div>
+
                 </div>
               </div>
             </div>

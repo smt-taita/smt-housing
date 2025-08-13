@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const faqData = [
   {
     question: "What exactly is the St Matt's Kāinga project?",
-    answer: "St Matt's Kāinga is an affordable housing community featuring 8 homes (1x 4-bedroom, 3x 2-bedroom, and 4x 1-bedroom units) in Taitā, Lower Hutt. It houses families, former refugees, and people transitioning from temporary housing, with two church leaders living onsite as community catalysts. It's part of the Anglican Diocese's Bedrock Housing initiative."
+    answer: "St Matt's Kāinga is an affordable housing community featuring 8 homes (1x 4-bedroom, 3x 2-bedroom, and 4x 1-bedroom units) in Taitā, Lower Hutt. It houses families, former refugees, and people transitioning from temporary housing, with church leaders living onsite as community catalysts. It's part of the Anglican Diocese's Bedrock Housing initiative."
   },
   {
     question: "Who currently lives in these homes?",

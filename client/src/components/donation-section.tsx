@@ -329,10 +329,9 @@ export default function DonationSection() {
           <div>
             <div className="bg-white border-l-4 border-church-green p-6 rounded-lg shadow-sm">
               <blockquote className="text-slate-700 italic mb-4">
-                "Having a stable, affordable home has given our family the foundation we needed
-                to rebuild our lives. The community here feels like whānau—we look out for each other."
+                "This isn't just housing. It's a taste of the Kingdom of God. It's a chance to offer the welcome of Christ to those who need it most."
               </blockquote>
-              <cite className="text-slate-500 text-sm">— Current resident (name withheld for privacy)</cite>
+              <cite className="text-slate-500 text-sm">— Rev Maria Kirkland, Co-Missioner St Matt's Taitā</cite>
             </div>
           </div>
         </div>

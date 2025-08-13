@@ -56,7 +56,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
           {/* Left Column - St Matt's Info */}
           <div className="space-y-6">
             <div>
-              <span className="font-bold text-white text-xl">St Matt's Kāinga</span>
+              <span className="font-bold text-white text-xl">St Matt's Taitā Anglican Church</span>
             </div>
             
             <p className="text-slate-400 leading-relaxed">
@@ -81,10 +81,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
                 <span className="text-sm">Taitā, Lower Hutt, Wellington</span>
               </div>
               
-              <div className="flex items-center space-x-3">
-                <i className="fas fa-heart text-church-amber w-4"></i>
-                <span className="text-sm">Building community since 1957</span>
-              </div>
+
             </div>
           </div>
           

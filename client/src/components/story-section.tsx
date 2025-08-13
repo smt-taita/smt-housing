@@ -33,8 +33,8 @@ export default function StorySection() {
                 <div className="bg-church-blue bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                   <i className="fas fa-map-marker-alt text-church-blue text-2xl"></i>
                 </div>
-                <div className="text-3xl font-bold text-church-blue mb-2">8</div>
-                <div className="text-slate-600">Homes Provided</div>
+                <div className="text-3xl font-bold text-church-blue mb-2">15</div>
+                <div className="text-slate-600">Lives Impacted</div>
               </div>
               <div className="text-center">
                 <div className="bg-church-green bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
