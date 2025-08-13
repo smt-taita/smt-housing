@@ -8,7 +8,7 @@ export default function ImpactSection() {
   const monthly = donationAmount[0];
   const annual = monthly * 12;
   const taxCredit = Math.round(annual * 0.3333);
-  const homesHelped = Math.max(1, Math.floor(annual / 3000));
+  const householdsHelped = Math.max(1, Math.floor(annual / 24000));
 
   return (
     <section id="impact" className="py-20 bg-gradient-to-br from-slate-100 to-green-50">
@@ -122,7 +122,7 @@ export default function ImpactSection() {
                   <Slider
                     value={donationAmount}
                     onValueChange={setDonationAmount}
-                    max={200}
+                    max={500}
                     min={20}
                     step={10}
                     className="w-full"
@@ -132,7 +132,9 @@ export default function ImpactSection() {
                   <div className="text-2xl font-bold mb-2">${monthly}/month</div>
                   <div className="text-blue-100">Your annual contribution: ${annual.toLocaleString()}</div>
                   <div className="text-blue-100">Tax credit (33.33%): ${taxCredit.toLocaleString()}</div>
-
+                  <div className="text-green-100 font-semibold mt-2">
+                    Households helped: {householdsHelped} {householdsHelped === 1 ? 'household' : 'households'}
+                  </div>
                 </div>
               </div>
             </div>
