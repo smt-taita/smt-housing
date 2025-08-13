@@ -292,35 +292,33 @@ export default function DonationSection() {
           <div>
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Other Ways to Support</h3>
             
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl">
-                <div className="bg-church-blue bg-opacity-20 rounded-lg p-3">
-                  <i className="fas fa-praying-hands text-church-blue"></i>
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-church-blue bg-opacity-20 rounded-xl p-3 flex-shrink-0">
+                  <i className="fas fa-praying-hands text-church-blue text-lg"></i>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Prayer Support</h4>
+                  <h4 className="font-semibold text-slate-900 mb-2">Prayer Support</h4>
                   <p className="text-slate-600">Join our prayer network for residents and the project's future.</p>
                 </div>
               </div>
               
-
-              
-              <div className="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl">
-                <div className="bg-church-amber bg-opacity-20 rounded-lg p-3">
-                  <i className="fas fa-share-alt text-church-amber"></i>
+              <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-amber-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-church-amber bg-opacity-20 rounded-xl p-3 flex-shrink-0">
+                  <i className="fas fa-share-alt text-church-amber text-lg"></i>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Share with Networks</h4>
+                  <h4 className="font-semibold text-slate-900 mb-2">Share with Networks</h4>
                   <p className="text-slate-600">Help us reach more potential supporters in your community.</p>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl">
-                <div className="bg-purple-100 rounded-lg p-3">
-                  <i className="fas fa-handshake text-purple-600"></i>
+              <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-purple-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-purple-100 rounded-xl p-3 flex-shrink-0">
+                  <i className="fas fa-handshake text-purple-600 text-lg"></i>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Workplace Partnerships</h4>
+                  <h4 className="font-semibold text-slate-900 mb-2">Workplace Partnerships</h4>
                   <p className="text-slate-600">Connect your church or workplace for group giving opportunities.</p>
                 </div>
               </div>
