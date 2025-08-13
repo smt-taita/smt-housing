@@ -126,7 +126,7 @@ export default function ImpactSection() {
                   <div className="text-2xl font-bold mb-2">${monthly}/month</div>
                   <div className="text-blue-100">Your annual contribution: ${annual.toLocaleString()}</div>
                   <div className="text-blue-100">Tax credit (33.33%): ${taxCredit.toLocaleString()}</div>
-                  <div className="text-church-amber font-medium mt-2">
+                  <div className="text-yellow-200 font-semibold mt-2 bg-black bg-opacity-30 rounded-md px-3 py-1">
                     Helps secure housing for {homesHelped} household{homesHelped > 1 ? 's' : ''}
                   </div>
                 </div>
