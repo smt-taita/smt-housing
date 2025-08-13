@@ -95,7 +95,6 @@ export default function HeroSection() {
                     className="w-full h-80 md:h-96 object-cover"
                     loading="eager"
                     decoding="async"
-                    fetchPriority="high"
                     width="800"
                     height="384"
                   />
