@@ -11,40 +11,40 @@
   --card-foreground: hsl(210 25% 7.8431%);
   --popover: hsl(0 0% 100%);
   --popover-foreground: hsl(210 25% 7.8431%);
-  --primary: hsl(200 45% 25%);
+  --primary: hsl(0 15% 25%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(210 15% 35%);
+  --secondary: hsl(0 8% 45%);
   --secondary-foreground: hsl(0 0% 100%);
-  --muted: hsl(220 14% 96%);
-  --muted-foreground: hsl(220 9% 46%);
+  --muted: hsl(0 5% 96%);
+  --muted-foreground: hsl(0 3% 46%);
   --accent: hsl(220 14% 96%);
   --accent-foreground: hsl(220 9% 46%);
   --destructive: hsl(0 84% 60%);
   --destructive-foreground: hsl(0 0% 100%);
   --border: hsl(220 13% 91%);
   --input: hsl(220 13% 91%);
-  --ring: hsl(35 75% 55%);
+  --ring: hsl(0 15% 40%);
 
-  /* Church colors - based on SMT logo */
-  --church-blue: hsl(200 45% 25%);
-  --church-green: hsl(85 35% 45%);
-  --church-amber: hsl(35 75% 55%);
-  --church-slate: hsl(210 15% 35%);
+  /* Church colors - faded black and red from SMT logo */
+  --church-blue: hsl(0 15% 25%);
+  --church-green: hsl(0 20% 35%);
+  --church-amber: hsl(0 25% 50%);
+  --church-slate: hsl(0 8% 45%);
 
-  /* Blue variants - muted navy from logo */
-  --blue-50: hsl(200 35% 96%);
-  --blue-100: hsl(200 30% 90%);
-  --blue-600: hsl(200 45% 25%);
-  --blue-700: hsl(200 50% 20%);
+  /* Red variants - faded red from logo */
+  --blue-50: hsl(0 10% 96%);
+  --blue-100: hsl(0 8% 90%);
+  --blue-600: hsl(0 20% 35%);
+  --blue-700: hsl(0 25% 25%);
 
-  /* Green variants - sage green from logo */
-  --green-50: hsl(85 25% 95%);
-  --green-600: hsl(85 35% 45%);
-  --green-700: hsl(85 40% 35%);
+  /* Muted red variants */
+  --green-50: hsl(0 8% 95%);
+  --green-600: hsl(0 15% 40%);
+  --green-700: hsl(0 20% 30%);
 
-  /* Amber variants - warm gold from logo */
-  --amber-100: hsl(35 60% 90%);
-  --amber-600: hsl(35 75% 55%);
+  /* Faded black variants */
+  --amber-100: hsl(0 5% 88%);
+  --amber-600: hsl(0 8% 55%);
 
   /* Slate variants */
   --slate-50: hsl(210 40% 98%);
