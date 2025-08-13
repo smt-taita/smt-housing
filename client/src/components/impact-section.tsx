@@ -23,8 +23,8 @@ export default function ImpactSection() {
             <Card>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="bg-church-green bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center">
-                    <i className="fas fa-receipt text-church-green text-xl"></i>
+                  <div className="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center">
+                    <i className="fas fa-receipt text-green-700 text-xl"></i>
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900">Tax Deductible</h3>
                 </div>
@@ -43,8 +43,8 @@ export default function ImpactSection() {
             <Card>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="bg-church-blue bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center">
-                    <i className="fas fa-chart-line text-church-blue text-xl"></i>
+                  <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                    <i className="fas fa-chart-line text-blue-700 text-xl"></i>
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900">Regular Updates</h3>
                 </div>
