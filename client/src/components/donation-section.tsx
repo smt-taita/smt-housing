@@ -313,9 +313,9 @@ export default function DonationSection() {
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-purple-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-purple-100 rounded-xl p-3 flex-shrink-0">
-                  <i className="fas fa-handshake text-purple-600 text-lg"></i>
+              <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-slate-50 to-green-50 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-church-green bg-opacity-20 rounded-xl p-3 flex-shrink-0">
+                  <i className="fas fa-handshake text-church-green text-lg"></i>
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-2">Workplace Partnerships</h4>
