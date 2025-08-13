@@ -48,7 +48,7 @@ export default {
         'church-green': "var(--church-green)",
         'church-amber': "var(--church-amber)",
         'church-slate': "var(--church-slate)",
-        gold: {
+        blue: {
           50: "var(--blue-50)",
           100: "var(--blue-100)",
           600: "var(--blue-600)",
