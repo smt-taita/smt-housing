@@ -108,11 +108,6 @@ export default function Footer({ onShowAdmin }: FooterProps) {
                   Your Impact
                 </button>
               </li>
-              <li>
-                <button onClick={onShowAdmin} className="hover:text-white transition-colors">
-                  Admin Portal
-                </button>
-              </li>
             </ul>
           </div>
           
