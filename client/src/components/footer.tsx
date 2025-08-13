@@ -54,12 +54,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/smt-logo.jpg" 
-                alt="St Matt's Logo" 
-                className="w-8 h-8 rounded-full object-cover"
-              />
+            <div className="mb-6">
               <span className="font-bold text-white text-xl">St Matt's Kāinga</span>
             </div>
             
@@ -124,7 +119,18 @@ export default function Footer({ onShowAdmin }: FooterProps) {
           
         </div>
         
-        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
+        {/* Centered Logo */}
+        <div className="flex justify-center mt-12 mb-8">
+          <div className="bg-white rounded-full p-4 shadow-lg">
+            <img 
+              src="/smt-logo.jpg" 
+              alt="St Matt's Logo" 
+              className="w-16 h-16 rounded-full object-cover"
+            />
+          </div>
+        </div>
+        
+        <div className="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between">
           <div className="text-slate-400 text-sm">
             <p>&copy; 2025 St Matt's Kāinga. Part of the Anglican Diocese of Wellington.</p>
             <p className="mt-1 text-center">AI powered tech support provided by Malcolm @ <a href="mailto:malcolm@optimi.co.nz" className="text-white hover:text-slate-300 underline">Optimi</a></p>
