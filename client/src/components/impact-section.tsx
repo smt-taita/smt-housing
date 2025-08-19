@@ -78,10 +78,6 @@ export default function ImpactSection() {
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900">Community Building</h3>
                 </div>
-                <p className="text-slate-700 mb-4">
-                  The project is carefully managed by the Anglican Diocese of Wellington, 
-                  ensuring responsible stewardship of all donations and transparent reporting to supporters.
-                </p>
                 <div className="bg-slate-50 rounded-xl p-4 border-l-4 border-church-green">
                   <blockquote className="text-slate-700 italic mb-2">
                     "This is what loving your neighbour looks like"
@@ -97,7 +93,7 @@ export default function ImpactSection() {
                   <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
                     <i className="fas fa-recycle text-blue-600 text-xl"></i>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900">Sustainable Model</h3>
+                  <h3 className="text-xl font-semibold text-slate-900">Housing Model</h3>
                 </div>
                 <p className="text-slate-700 mb-4">
                   This project is part of the Anglican Diocese of Wellington's broader 
