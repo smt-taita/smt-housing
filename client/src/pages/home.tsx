@@ -24,13 +24,13 @@ export default function Home() {
     <div className="min-h-screen bg-slate-50">
       {/* Navigation */}
       <nav className="bg-white shadow-sm sticky top-0 z-40 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <img src="/smt-logo.jpg" alt="St Matt's Logo" className="h-8 w-8 object-contain" />
-              <div className="flex flex-col">
-                <span className="font-semibold text-slate-900 text-lg">St Matt's Taitā Anglican Church</span>
-                <span className="text-sm text-slate-600">St Matt's Kāinga</span>
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center min-h-[64px] py-2">
+            <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
+              <img src="/smt-logo.jpg" alt="St Matt's Logo" className="h-8 w-8 sm:h-10 sm:w-10 object-contain flex-shrink-0" />
+              <div className="flex flex-col min-w-0 flex-1">
+                <span className="font-semibold text-slate-900 text-sm sm:text-lg leading-tight truncate">St Matt's Taitā Anglican Church</span>
+                <span className="text-xs sm:text-sm text-slate-600">St Matt's Kāinga</span>
               </div>
             </div>
 
@@ -63,7 +63,7 @@ export default function Home() {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex items-center flex-shrink-0 ml-2">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-church-blue hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-church-blue"
