@@ -16,7 +16,7 @@ export default function StorySection() {
             </p>
 
             <p className="text-lg text-slate-700 leading-relaxed">
-              Two of our church leaders live onsite as community catalysts, fostering connections 
+              Church leaders live onsite as community catalysts, fostering connections 
               and support among residents. This isn't just about providing housing—we're building 
               relationships, stability, and genuine community.
             </p>
