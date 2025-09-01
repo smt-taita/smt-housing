@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { emailService } from "./email";
 import { insertDonationSchema, insertCampaignDataSchema } from "@shared/schema";
 import { z } from "zod";
 
@@ -95,9 +96,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Valid email required" });
       }
       
-      // TODO: Integrate with email service
-      console.log("Newsletter signup:", email);
-      res.json({ message: "Successfully subscribed to newsletter" });
+      // Send welcome email
+      const emailSent = await emailService.sendNewsletterWelcome(email);
+      
+      if (emailSent) {
+        res.json({ message: "Successfully subscribed to newsletter" });
+      } else {
+        res.status(500).json({ message: "Failed to subscribe - please try again" });
+      }
     } catch (error) {
       res.status(500).json({ message: "Failed to subscribe to newsletter" });
     }
@@ -112,9 +118,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Name, email, and message are required" });
       }
       
-      // TODO: Send email or save to database
-      console.log("Contact form submission:", { name, email, message });
-      res.json({ message: "Message sent successfully" });
+      // Send email notification
+      const emailSent = await emailService.sendContactFormNotification({ name, email, message });
+      
+      if (emailSent) {
+        res.json({ message: "Message sent successfully" });
+      } else {
+        res.status(500).json({ message: "Failed to send message - please try again" });
+      }
     } catch (error) {
       res.status(500).json({ message: "Failed to send message" });
     }
