@@ -4,6 +4,7 @@ import ChallengeSection from "@/components/challenge-section";
 import DonationSection from "@/components/donation-section";
 import ImpactSection from "@/components/impact-section";
 import FaqSection from "@/components/faq-section";
+import ContactSection from "@/components/contact-section";
 import AdminDashboard from "@/components/admin-dashboard";
 import Footer from "@/components/footer";
 import { useState } from "react";
@@ -137,6 +138,7 @@ export default function Home() {
       <DonationSection />
       <ImpactSection />
       <FaqSection />
+      <ContactSection />
 
       {showAdmin && <AdminDashboard onClose={() => setShowAdmin(false)} />}
 

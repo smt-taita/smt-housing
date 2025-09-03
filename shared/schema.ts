@@ -33,6 +33,18 @@ export const campaignData = pgTable("campaign_data", {
   lastUpdated: timestamp("last_updated").defaultNow(),
 });
 
+export const contactSubmissions = pgTable("contact_submissions", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  amount: decimal("amount", { precision: 10, scale: 2 }),
+  frequency: text("frequency", { enum: ["monthly", "annual", "one-time"] }),
+  message: text("message"),
+  submittedAt: timestamp("submitted_at").defaultNow(),
+  status: text("status", { enum: ["new", "contacted", "converted", "declined"] }).default("new"),
+  notes: text("notes"),
+});
+
 export const insertDonationSchema = createInsertSchema(donations).omit({
   id: true,
   createdAt: true,
@@ -43,10 +55,17 @@ export const insertCampaignDataSchema = createInsertSchema(campaignData).omit({
   lastUpdated: true,
 });
 
+export const insertContactSubmissionSchema = createInsertSchema(contactSubmissions).omit({
+  id: true,
+  submittedAt: true,
+});
+
 export type InsertDonation = z.infer<typeof insertDonationSchema>;
 export type Donation = typeof donations.$inferSelect;
 export type InsertCampaignData = z.infer<typeof insertCampaignDataSchema>;
 export type CampaignData = typeof campaignData.$inferSelect;
+export type InsertContactSubmission = z.infer<typeof insertContactSubmissionSchema>;
+export type ContactSubmission = typeof contactSubmissions.$inferSelect;
 
 // Campaign summary type for frontend
 export const campaignSummarySchema = z.object({

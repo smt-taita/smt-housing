@@ -12,6 +12,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useCampaignData, useRecentDonations } from "@/hooks/use-campaign-data";
+import type { ContactSubmission } from "@shared/schema";
 
 const offlineDonationSchema = z.object({
   donorName: z.string().optional(),
@@ -32,6 +33,12 @@ export default function AdminDashboard({ onClose }: AdminDashboardProps) {
   const queryClient = useQueryClient();
   const { data: campaignSummary } = useCampaignData();
   const { data: recentDonations } = useRecentDonations();
+  
+  // Fetch contact submissions
+  const { data: contactSubmissions } = useQuery({
+    queryKey: ["/api/contact-submissions"],
+    queryFn: () => apiRequest("GET", "/api/contact-submissions"),
+  });
   
   const form = useForm<OfflineDonationForm>({
     resolver: zodResolver(offlineDonationSchema),
@@ -224,6 +231,33 @@ export default function AdminDashboard({ onClose }: AdminDashboardProps) {
                   </div>
                 </div>
                 
+                <div className="bg-slate-50 rounded-xl p-4">
+                  <h4 className="font-medium text-slate-900 mb-3">Recent Contact Submissions</h4>
+                  <div className="space-y-2 text-sm">
+                    {contactSubmissions && Array.isArray(contactSubmissions) ? contactSubmissions.slice(0, 5).map((submission: ContactSubmission) => (
+                      <div key={submission.id} className="flex justify-between items-center p-2 bg-white rounded border">
+                        <div>
+                          <span className="font-medium">{submission.name}</span>
+                          <span className="text-slate-500 ml-2">{submission.email}</span>
+                          {submission.amount && (
+                            <span className="text-church-green ml-2">${submission.amount}</span>
+                          )}
+                        </div>
+                        <span className={`px-2 py-1 rounded text-xs ${
+                          submission.status === 'new' ? 'bg-yellow-100 text-yellow-800' :
+                          submission.status === 'contacted' ? 'bg-blue-100 text-blue-800' :
+                          submission.status === 'converted' ? 'bg-green-100 text-green-800' :
+                          'bg-gray-100 text-gray-800'
+                        }`}>
+                          {submission.status}
+                        </span>
+                      </div>
+                    )) : (
+                      <p className="text-slate-500">No contact submissions yet</p>
+                    )}
+                  </div>
+                </div>
+
                 <Button 
                   onClick={exportCampaignData}
                   className="w-full bg-church-green text-white hover:bg-green-700"
