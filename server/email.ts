@@ -1,4 +1,3 @@
-
 import nodemailer from 'nodemailer';
 
 interface EmailConfig {
@@ -37,24 +36,53 @@ class EmailService {
     }
   }
 
-  async sendContactFormNotification(contactData: {
-    name: string;
-    email: string;
-    message: string;
-  }): Promise<boolean> {
-    const html = `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${contactData.name}</p>
-      <p><strong>Email:</strong> ${contactData.email}</p>
-      <p><strong>Message:</strong></p>
-      <p>${contactData.message.replace(/\n/g, '<br>')}</p>
-    `;
+  async sendContactFormNotification(contactData: { name: string; email: string; message: string }): Promise<boolean> {
+    try {
+      await this.transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: 'housing@stmattstaita.org.nz', // recipient email
+        subject: 'New Contact Form Submission - St Matt\'s Kāinga',
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${contactData.name}</p>
+          <p><strong>Email:</strong> ${contactData.email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${contactData.message.replace(/\n/g, '<br>')}</p>
+          <hr>
+          <p><em>Sent from St Matt's Kāinga website</em></p>
+        `
+      });
 
-    return this.sendEmail({
-      to: process.env.ADMIN_EMAIL || 'housing@stmattstaita.org.nz',
-      subject: 'New Contact Form Submission - St Matt\'s Kāinga',
-      html,
-    });
+      return true;
+    } catch (error) {
+      console.error('Failed to send contact form notification:', error);
+      return false;
+    }
+  }
+
+  async sendDonationContactNotification(donationData: { name: string; email: string; amount: number; frequency: string }): Promise<boolean> {
+    try {
+      await this.transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: 'housing@stmattstaita.org.nz', // recipient email
+        subject: 'New Donation Interest - St Matt\'s Kāinga',
+        html: `
+          <h2>New Donation Contact Submission</h2>
+          <p><strong>Name:</strong> ${donationData.name}</p>
+          <p><strong>Email:</strong> ${donationData.email}</p>
+          <p><strong>Amount:</strong> $${donationData.amount} NZD</p>
+          <p><strong>Frequency:</strong> ${donationData.frequency}</p>
+          <hr>
+          <p><em>Please contact this person with payment details for their donation.</em></p>
+          <p><em>Sent from St Matt's Kāinga website</em></p>
+        `
+      });
+
+      return true;
+    } catch (error) {
+      console.error('Failed to send donation contact notification:', error);
+      return false;
+    }
   }
 
   async sendDonationNotification(donationData: {

@@ -84,12 +84,10 @@ export default function Home() {
             </div>
 
             <Button
-              asChild
+              onClick={() => document.getElementById('help')?.scrollIntoView({ behavior: 'smooth' })}
               className="hidden md:inline-flex bg-church-amber text-white hover:bg-amber-600 transition-colors font-medium"
             >
-              <a href="mailto:housing@stmattstaita.org.nz?subject=Donation%20to%20St%20Matt's%20Kāinga&body=Hi,%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20support%20St%20Matt's%20Kāinga.%20Please%20let%20me%20know%20how%20to%20proceed.%0A%0AThank%20you">
-                <i className="fas fa-heart mr-2"></i>Donate Now
-              </a>
+              <i className="fas fa-heart mr-2"></i>Donate Now
             </Button>
           </div>
         </div>

@@ -131,6 +131,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Donation contact form
+  app.post("/api/donation-contact", async (req, res) => {
+    try {
+      const { name, email, amount, frequency } = req.body;
+      
+      if (!name || !email || !amount || !frequency) {
+        return res.status(400).json({ message: "Name, email, amount, and frequency are required" });
+      }
+      
+      // Send email notification
+      const emailSent = await emailService.sendDonationContactNotification({ name, email, amount, frequency });
+      
+      if (emailSent) {
+        res.json({ message: "Donation contact submitted successfully" });
+      } else {
+        res.status(500).json({ message: "Failed to submit donation contact - please try again" });
+      }
+    } catch (error) {
+      res.status(500).json({ message: "Failed to submit donation contact" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

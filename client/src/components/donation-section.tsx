@@ -13,6 +13,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
+import DonationContactForm from "./donation-contact-form";
 
 const donationSchema = z.object({
   amount: z.string().min(1, "Amount is required").transform(Number),
@@ -36,6 +37,7 @@ const donationOptions = [
 
 export default function DonationSection() {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(100);
+  const [showDonationForm, setShowDonationForm] = useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -103,12 +105,10 @@ export default function DonationSection() {
               Online payment processing is coming soon. For now, to make a donation, please contact us directly:
             </p>
             <Button
-              asChild
+              onClick={() => setShowDonationForm(true)}
               className="bg-church-amber text-white hover:bg-amber-600 transition-all transform hover:scale-105 shadow-lg px-8 py-4 rounded-xl font-semibold text-lg"
             >
-              <a href="mailto:housing@stmattstaita.org.nz?subject=Donation%20to%20St%20Matt's%20Kāinga&body=Hi,%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20support%20St%20Matt's%20Kāinga.%20Please%20let%20me%20know%20how%20to%20proceed.%0A%0AThank%20you">
-                <i className="fas fa-envelope mr-2"></i>Contact Us to Donate
-              </a>
+              <i className="fas fa-heart mr-2"></i>Contact Us to Donate
             </Button>
             <p className="text-sm text-slate-700 mt-4">
               <i className="fas fa-envelope mr-2 text-church-blue"></i>housing@stmattstaita.org.nz
@@ -336,6 +336,10 @@ export default function DonationSection() {
           </div>
         </div>
       </div>
+
+      {showDonationForm && (
+        <DonationContactForm onClose={() => setShowDonationForm(false)} />
+      )}
     </section>
   );
 }
