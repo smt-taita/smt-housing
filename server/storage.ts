@@ -1,12 +1,12 @@
-import { 
-  type Donation, 
-  type InsertDonation, 
-  type CampaignData, 
-  type InsertCampaignData, 
+import {
+  type Donation,
+  type InsertDonation,
+  type CampaignData,
+  type InsertCampaignData,
   type CampaignSummary,
   type ContactSubmission,
   type InsertContactSubmission,
-  donations, 
+  donations,
   campaignData,
   contactSubmissions
 } from "@shared/schema";
@@ -61,7 +61,7 @@ export class DatabaseStorage implements IStorage {
   // Campaign data methods
   async getCampaignData(): Promise<CampaignData> {
     let [data] = await db.select().from(campaignData).where(eq(campaignData.id, "main"));
-    
+
     if (!data) {
       // Initialize default campaign data
       [data] = await db.insert(campaignData).values({
@@ -77,7 +77,7 @@ export class DatabaseStorage implements IStorage {
         monthlyCommitments: "0.00",
       }).returning();
     }
-    
+
     return data;
   }
 
@@ -86,23 +86,23 @@ export class DatabaseStorage implements IStorage {
       .set({ ...data, lastUpdated: new Date() })
       .where(eq(campaignData.id, "main"))
       .returning();
-    
+
     return updated;
   }
 
   async getCampaignSummary(): Promise<CampaignSummary> {
     const data = await this.getCampaignData();
-    
+
     const goal = parseFloat(data.goal);
     const totalRaised = parseFloat(data.totalRaised || "0");
     const progressPercentage = Math.round((totalRaised / goal) * 100);
-    
+
     // Calculate days remaining
     const now = new Date();
     const endDate = new Date(data.endDate);
     const timeDiff = endDate.getTime() - now.getTime();
     const daysRemaining = Math.max(0, Math.ceil(timeDiff / (1000 * 3600 * 24)));
-    
+
     return {
       goal,
       totalRaised,
@@ -129,45 +129,45 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateContactSubmissionStatus(
-    id: string, 
-    status: "new" | "contacted" | "converted" | "declined", 
+    id: string,
+    status: "new" | "contacted" | "converted" | "declined",
     notes?: string
   ): Promise<ContactSubmission> {
     const updateData: any = { status };
     if (notes !== undefined) {
       updateData.notes = notes;
     }
-    
+
     const [updated] = await db.update(contactSubmissions)
       .set(updateData)
       .where(eq(contactSubmissions.id, id))
       .returning();
-    
+
     return updated;
   }
 
   // Admin methods
   async updateCampaignProgress(): Promise<void> {
     const allDonations = await this.getDonations();
-    
+
     const totalRaised = allDonations.reduce((sum, donation) => {
       return sum + parseFloat(donation.amount);
     }, 0);
-    
+
     const onlineTotal = allDonations
       .filter(d => d.source === "online")
       .reduce((sum, donation) => sum + parseFloat(donation.amount), 0);
-      
+
     const offlineTotal = allDonations
       .filter(d => d.source === "offline")
       .reduce((sum, donation) => sum + parseFloat(donation.amount), 0);
-    
+
     const monthlyCommitments = allDonations
       .filter(d => d.frequency === "monthly")
       .reduce((sum, donation) => sum + parseFloat(donation.amount), 0) * 12;
-    
+
     const donorCount = allDonations.length;
-    
+
     await this.updateCampaignData({
       totalRaised: totalRaised.toFixed(2),
       onlineTotal: onlineTotal.toFixed(2),
