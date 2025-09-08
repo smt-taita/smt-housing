@@ -44,19 +44,19 @@ export default function HeroSection() {
                 <div className="flex justify-between items-center mb-4">
                   <span className="font-semibold text-lg">Campaign Progress</span>
                   <span className="bg-church-amber text-church-blue font-bold text-xl px-3 py-1 rounded-full shadow-lg border-2 border-white">
-                    20%
+                    33%
                   </span>
                 </div>
                 
                 <ProgressBar 
-                  current={4800} 
+                  current={7800} 
                   goal={campaignSummary.goal}
                   className="mb-4"
                 />
                 
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <div className="font-semibold">$4,800</div>
+                    <div className="font-semibold">$7,800</div>
                     <div className="text-blue-100">Raised so far</div>
                   </div>
                   <div>
