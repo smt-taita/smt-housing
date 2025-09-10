@@ -72,7 +72,7 @@ export default function DonationSection() {
           </div>
 
           {/* Testimonial */}
-          <div>
+          <div className="flex items-center">
             <div className="bg-white border-l-4 border-church-green p-6 rounded-lg shadow-sm">
               <blockquote className="text-slate-700 italic mb-4">
                 "This isn't just housing. It's a taste of the Kingdom of God. It's a chance to offer the welcome of Christ to those who need it most."
