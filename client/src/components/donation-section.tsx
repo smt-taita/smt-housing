@@ -1,93 +1,6 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Card, CardContent } from "@/components/ui/card";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
-import { trackEvent } from "@/lib/analytics";
-import DonationContactForm from "./donation-contact-form";
-
-const donationSchema = z.object({
-  amount: z.string().min(1, "Amount is required").transform(Number),
-  frequency: z.enum(["monthly", "annual", "one-time"]),
-  donorName: z.string().optional(),
-  donorEmail: z.string().email("Valid email required"),
-  donorPhone: z.string().optional(),
-  message: z.string().optional(),
-  anonymous: z.boolean().default(false),
-  receiveUpdates: z.boolean().default(true),
-});
-
-type DonationForm = z.infer<typeof donationSchema>;
-
-const donationOptions = [
-  { amount: 20, label: "Community Supporter", annual: 240 },
-  { amount: 50, label: "Housing Champion", annual: 600 },
-  { amount: 100, label: "Community Partner", annual: 1200, preferred: true },
-  { amount: 200, label: "Housing Hero", annual: 2400 },
-];
 
 export default function DonationSection() {
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(100);
-  const [showDonationForm, setShowDonationForm] = useState(false);
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
-
-  const form = useForm<DonationForm>({
-    resolver: zodResolver(donationSchema),
-    defaultValues: {
-      amount: 100,
-      frequency: "monthly",
-      anonymous: false,
-      receiveUpdates: true,
-    },
-  });
-
-  const createDonation = useMutation({
-    mutationFn: async (data: DonationForm) => {
-      return apiRequest("POST", "/api/donations", {
-        ...data,
-        source: "online",
-      });
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/campaign/summary"] });
-      queryClient.invalidateQueries({ queryKey: ["/api/donations/recent"] });
-
-      toast({
-        title: "Thank you for your donation!",
-        description: "You will be redirected to secure payment processing.",
-      });
-
-      // Track donation event
-      trackEvent('donation_initiated', 'engagement', 'online_form', form.getValues().amount);
-
-      // TODO: Redirect to Stripe/PayPal
-      console.log("Redirect to payment processor with:", form.getValues());
-    },
-    onError: (error) => {
-      toast({
-        title: "Error",
-        description: "Failed to process donation. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: DonationForm) => {
-    createDonation.mutate(data);
-  };
-
-
-
   return (
     <section id="help" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,10 +18,16 @@ export default function DonationSection() {
               Online payment processing is coming soon. For now, to make a donation, please contact us directly:
             </p>
             <Button
-              onClick={() => setShowDonationForm(true)}
+              asChild
               className="bg-church-amber text-white hover:bg-amber-600 transition-all transform hover:scale-105 shadow-lg px-8 py-4 rounded-xl font-semibold text-lg"
             >
-              <i className="fas fa-heart mr-2"></i>Contact Us to Donate
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeRgySdjbRm8iVWoHISdlhI7V2pd0zLX2kDIny54VyqHIKfng/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fas fa-heart mr-2"></i>Contact Us to Donate
+              </a>
             </Button>
             <p className="text-sm text-slate-700 mt-4">
               <i className="fas fa-envelope mr-2 text-church-blue"></i>housing@stmattstaita.org.nz
@@ -116,176 +35,6 @@ export default function DonationSection() {
           </div>
         </div>
 
-        {/* Donation Options - Temporarily Hidden */}
-        {false && (
-        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-8 mb-16">
-          <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">Monthly Giving Options</h3>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {donationOptions.map((option) => (
-              <Card
-                key={option.amount}
-                className={`cursor-pointer transition-all hover:shadow-xl relative ${
-                  selectedAmount === option.amount
-                    ? 'ring-2 ring-church-amber'
-                    : option.preferred
-                    ? 'bg-gradient-to-br from-church-amber to-yellow-400 text-white'
-                    : 'bg-white'
-                }`}
-                onClick={() => {
-                  setSelectedAmount(option.amount);
-                  form.setValue('amount', option.amount);
-                }}
-              >
-                {option.preferred && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-church-blue text-white px-4 py-1 rounded-full text-sm font-medium">Preferred</span>
-                  </div>
-                )}
-                <CardContent className="p-6 text-center">
-                  <div className={`text-2xl font-bold mb-2 ${option.preferred ? 'text-slate-900' : 'text-church-blue'}`}>
-                    ${option.amount}
-                  </div>
-                  <div className={`mb-3 ${option.preferred ? 'text-slate-700' : 'text-slate-600'}`}>
-                    per month
-                  </div>
-                  <div className={`text-sm ${option.preferred ? 'text-slate-600' : 'text-slate-500'}`}>
-                    ${option.annual}/year
-                  </div>
-                  <div className={`text-sm mt-2 font-medium ${option.preferred ? 'text-slate-800' : 'text-church-green'}`}>
-                    {option.label}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Donation Form */}
-          <Card>
-            <CardContent className="p-8">
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <Label htmlFor="amount">Donation Amount (NZD)</Label>
-                    <div className="relative">
-                      <span className="absolute left-3 top-3 text-slate-500">$</span>
-                      <Input
-                        {...form.register("amount")}
-                        id="amount"
-                        type="number"
-                        className="pl-8"
-                        placeholder="100"
-                        min="1"
-                        step="1"
-                      />
-                    </div>
-                    {form.formState.errors.amount && (
-                      <p className="text-sm text-red-600 mt-1">{form.formState.errors.amount.message}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Label htmlFor="frequency">Frequency</Label>
-                    <Select
-                      value={form.watch("frequency")}
-                      onValueChange={(value) => form.setValue("frequency", value as any)}
-                    >
-                      <SelectTrigger className="bg-white border-slate-300 text-slate-900 focus:border-church-blue focus:ring-church-blue">
-                        <SelectValue placeholder="Select frequency" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-white border border-slate-200 shadow-lg">
-                        <SelectItem value="monthly" className="text-slate-900 hover:bg-church-blue hover:text-white focus:bg-church-blue focus:text-white">Monthly</SelectItem>
-                        <SelectItem value="annual" className="text-slate-900 hover:bg-church-blue hover:text-white focus:bg-church-blue focus:text-white">Annual</SelectItem>
-                        <SelectItem value="one-time" className="text-slate-900 hover:bg-church-blue hover:text-white focus:bg-church-blue focus:text-white">One-time</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <Label htmlFor="donorName">Full Name</Label>
-                    <Input
-                      {...form.register("donorName")}
-                      id="donorName"
-                      placeholder="Your full name"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="donorEmail">Email</Label>
-                    <Input
-                      {...form.register("donorEmail")}
-                      id="donorEmail"
-                      type="email"
-                      placeholder="your.email@example.com"
-                    />
-                    {form.formState.errors.donorEmail && (
-                      <p className="text-sm text-red-600 mt-1">{form.formState.errors.donorEmail.message}</p>
-                    )}
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="donorPhone">Phone (Optional)</Label>
-                  <Input
-                    {...form.register("donorPhone")}
-                    id="donorPhone"
-                    type="tel"
-                    placeholder="021 123 4567"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="message">Message (Optional)</Label>
-                  <Textarea
-                    {...form.register("message")}
-                    id="message"
-                    className="h-24 resize-none"
-                    placeholder="Share why you want to support St Matt's Kāinga..."
-                  />
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="anonymous"
-                    checked={form.watch("anonymous")}
-                    onCheckedChange={(checked) => form.setValue("anonymous", !!checked)}
-                  />
-                  <Label htmlFor="anonymous" className="text-sm">
-                    Make my donation anonymous
-                  </Label>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="receiveUpdates"
-                    checked={form.watch("receiveUpdates")}
-                    onCheckedChange={(checked) => form.setValue("receiveUpdates", !!checked)}
-                  />
-                  <Label htmlFor="receiveUpdates" className="text-sm">
-                    Send me quarterly updates about the project
-                  </Label>
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-church-amber text-white hover:bg-amber-600 py-4 text-lg font-semibold shadow-lg"
-                  disabled={createDonation.isPending}
-                >
-                  <i className="fas fa-heart mr-2"></i>
-                  {createDonation.isPending ? "Processing..." : "Proceed to Payment"}
-                </Button>
-
-                <p className="text-sm text-slate-600 text-center">
-                  <i className="fas fa-shield-alt mr-2 text-church-green"></i>
-                  Secure payment processing via Stripe. Tax-deductible receipts provided.
-                </p>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-        )}
 
         {/* Other Ways to Support */}
         <div className="grid lg:grid-cols-2 gap-12">
@@ -337,9 +86,6 @@ export default function DonationSection() {
         </div>
       </div>
 
-      {showDonationForm && (
-        <DonationContactForm onClose={() => setShowDonationForm(false)} />
-      )}
     </section>
   );
 }
