@@ -86,7 +86,7 @@ export default function Home() {
 
             <Button
               onClick={() => document.getElementById('help')?.scrollIntoView({ behavior: 'smooth' })}
-              className="hidden md:inline-flex bg-church-amber text-white hover:bg-amber-600 transition-colors font-medium"
+              className="hidden md:inline-flex bg-church-amber text-white hover:bg-amber-600 transition-colors font-medium ml-6"
             >
               <i className="fas fa-heart mr-2"></i>Donate Now
             </Button>
