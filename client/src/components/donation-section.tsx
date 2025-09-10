@@ -29,9 +29,6 @@ export default function DonationSection() {
                 <i className="fas fa-heart mr-2"></i>Contact Us to Donate
               </a>
             </Button>
-            <p className="text-sm text-slate-700 mt-4">
-              <i className="fas fa-envelope mr-2 text-church-blue"></i>housing@stmattstaita.org.nz
-            </p>
           </div>
         </div>
 
