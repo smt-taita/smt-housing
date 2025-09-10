@@ -116,8 +116,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = adminAuthSchema.parse(req.body);
       const { password } = validatedData;
       
-      // Get admin password from environment variable (fallback for development)
-      const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "stmatts2025";
+      // Get admin password from environment variable (must be set in secrets)
+      const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+      
+      if (!ADMIN_PASSWORD) {
+        return res.status(500).json({ success: false, message: "Admin password not configured" });
+      }
       
       if (password === ADMIN_PASSWORD) {
         // Set session authentication
