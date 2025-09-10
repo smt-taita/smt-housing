@@ -9,9 +9,9 @@ export default function ContactSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-church-blue to-church-green mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex justify-center">
           {/* Contact Information */}
-          <div className="bg-white rounded-xl p-8 shadow-lg">
+          <div className="bg-white rounded-xl p-8 shadow-lg max-w-md">
             <div className="text-center mb-6">
               <div className="bg-church-blue bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <i className="fas fa-envelope text-church-blue text-2xl"></i>
@@ -53,61 +53,8 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <Button 
-              asChild
-              className="w-full mt-6 bg-church-amber text-white hover:bg-amber-600 transition-colors font-medium"
-            >
-              <a href="mailto:housing@stmattstaita.org.nz?subject=Donation%20to%20St%20Matt's%20Kāinga&body=Hi,%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20support%20St%20Matt's%20Kāinga.%20Please%20let%20me%20know%20how%20to%20proceed.%0A%0AThank%20you">
-                <i className="fas fa-heart mr-2"></i>Email Us to Donate
-              </a>
-            </Button>
           </div>
 
-          {/* Donation Form Option */}
-          <div className="bg-white rounded-xl p-8 shadow-lg">
-            <div className="text-center mb-6">
-              <div className="bg-church-green bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <i className="fas fa-hand-holding-heart text-church-green text-2xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Donate Now</h3>
-              <p className="text-slate-600">
-                Use our donation form to make a one-time or regular contribution.
-              </p>
-            </div>
-
-            <div className="space-y-4 mb-6">
-              <div className="flex items-center space-x-3">
-                <i className="fas fa-check text-church-green"></i>
-                <span className="text-slate-700">Set up monthly or annual giving</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <i className="fas fa-check text-church-green"></i>
-                <span className="text-slate-700">Make a one-time donation</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <i className="fas fa-check text-church-green"></i>
-                <span className="text-slate-700">Choose your donation amount</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <i className="fas fa-check text-church-green"></i>
-                <span className="text-slate-700">Secure and easy to complete</span>
-              </div>
-            </div>
-
-            <Button 
-              asChild
-              className="w-full bg-church-green text-white hover:bg-green-700 transition-colors font-medium"
-              data-testid="button-donate-now"
-            >
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeRgySdjbRm8iVWoHISdlhI7V2pd0zLX2kDIny54VyqHIKfng/viewform?usp=header"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-heart mr-2"></i>Donate Now
-              </a>
-            </Button>
-          </div>
         </div>
       </div>
     </section>

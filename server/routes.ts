@@ -1,9 +1,52 @@
-import type { Express } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { emailService } from "./email";
 import { insertDonationSchema, insertCampaignDataSchema } from "@shared/schema";
 import { z } from "zod";
+
+// Extend Express Session to include our custom properties
+declare module 'express-session' {
+  interface SessionData {
+    isAdminAuthenticated?: boolean;
+    adminLoginTime?: number;
+  }
+}
+
+// Validation schemas for admin endpoints
+const adminAuthSchema = z.object({
+  password: z.string().min(1, "Password is required")
+});
+
+const adminUpdateAmountSchema = z.object({
+  amount: z.number().min(0, "Amount must be non-negative")
+});
+
+// Authentication middleware for admin routes
+const requireAdminAuth = (req: Request, res: Response, next: NextFunction) => {
+  if (!req.session.isAdminAuthenticated) {
+    return res.status(401).json({ 
+      success: false, 
+      message: "Admin authentication required" 
+    });
+  }
+  
+  // Check if session is expired (24 hours)
+  const loginTime = req.session.adminLoginTime || 0;
+  const now = Date.now();
+  const sessionDuration = 24 * 60 * 60 * 1000; // 24 hours
+  
+  if (now - loginTime > sessionDuration) {
+    req.session.isAdminAuthenticated = false;
+    req.session.adminLoginTime = undefined;
+    return res.status(401).json({ 
+      success: false, 
+      message: "Session expired. Please login again." 
+    });
+  }
+  
+  next();
+};
 
 export async function registerRoutes(app: Express): Promise<Server> {
   
@@ -28,7 +71,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Update campaign data (admin only)
-  app.patch("/api/campaign", async (req, res) => {
+  app.patch("/api/campaign", requireAdminAuth, async (req, res) => {
     try {
       const validatedData = insertCampaignDataSchema.partial().parse(req.body);
       const updatedData = await storage.updateCampaignData(validatedData);
@@ -58,12 +101,64 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get all donations (admin only)
-  app.get("/api/donations", async (req, res) => {
+  app.get("/api/donations", requireAdminAuth, async (req, res) => {
     try {
       const donations = await storage.getDonations();
       res.json(donations);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch donations" });
+    }
+  });
+
+  // Admin authentication
+  app.post("/api/admin/auth", async (req, res) => {
+    try {
+      const validatedData = adminAuthSchema.parse(req.body);
+      const { password } = validatedData;
+      
+      // Get admin password from environment variable (fallback for development)
+      const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "stmatts2025";
+      
+      if (password === ADMIN_PASSWORD) {
+        // Set session authentication
+        req.session.isAdminAuthenticated = true;
+        req.session.adminLoginTime = Date.now();
+        
+        res.json({ success: true, message: "Authentication successful" });
+      } else {
+        res.status(401).json({ success: false, message: "Invalid password" });
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ success: false, message: "Invalid request data", errors: error.errors });
+      } else {
+        res.status(500).json({ success: false, message: "Authentication failed" });
+      }
+    }
+  });
+
+  // Admin update amount - SECURED with authentication
+  app.post("/api/admin/update-amount", requireAdminAuth, async (req, res) => {
+    try {
+      const validatedData = adminUpdateAmountSchema.parse(req.body);
+      const { amount } = validatedData;
+      
+      // Update the campaign data with the new total raised amount
+      const updatedData = await storage.updateCampaignData({
+        totalRaised: amount.toFixed(2)
+      });
+      
+      res.json({ 
+        success: true, 
+        message: "Amount updated successfully",
+        data: updatedData 
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ success: false, message: "Invalid amount data", errors: error.errors });
+      } else {
+        res.status(500).json({ success: false, message: "Failed to update amount" });
+      }
     }
   });
 
@@ -131,6 +226,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin logout
+  app.post("/api/admin/logout", async (req, res) => {
+    try {
+      // Clear session authentication
+      req.session.isAdminAuthenticated = false;
+      req.session.adminLoginTime = undefined;
+      
+      res.json({ 
+        success: true, 
+        message: "Logged out successfully" 
+      });
+    } catch (error) {
+      res.status(500).json({ success: false, message: "Failed to logout" });
+    }
+  });
 
   const httpServer = createServer(app);
   return httpServer;
