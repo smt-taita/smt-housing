@@ -15,7 +15,7 @@ export default function DonationSection() {
           <div className="bg-white rounded-xl p-8 max-w-2xl mx-auto border-2 border-church-blue shadow-lg">
             <h3 className="text-2xl font-bold text-church-blue mb-4">Ready to Support Us?</h3>
             <p className="text-lg text-slate-800 mb-6">
-              Online payment processing is coming soon. For now, to make a donation, please contact us directly:
+              To let us know what you'd like to contribute, please enter the form below.
             </p>
             <Button
               asChild
