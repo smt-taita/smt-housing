@@ -1,45 +1,8 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
-import { trackEvent } from "@/lib/analytics";
-
 interface FooterProps {
   onShowAdmin: () => void;
 }
 
 export default function Footer({ onShowAdmin }: FooterProps) {
-  const { toast } = useToast();
-  const { register, handleSubmit, reset } = useForm<{ email: string }>();
-
-  const subscribeNewsletter = useMutation({
-    mutationFn: async (data: { email: string }) => {
-      return apiRequest("POST", "/api/newsletter/signup", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Thank you for subscribing to updates! You will receive quarterly progress reports.",
-      });
-      trackEvent('newsletter_signup', 'engagement', 'footer');
-      reset();
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to subscribe. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: { email: string }) => {
-    subscribeNewsletter.mutate(data);
-  };
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -104,7 +67,7 @@ export default function Footer({ onShowAdmin }: FooterProps) {
             </div>
           </div>
           
-          {/* Right Column - Quick Links & Newsletter */}
+          {/* Right Column - Quick Links */}
           <div className="space-y-8">
             <div>
               <h4 className="font-semibold text-white mb-4">Quick Links</h4>
@@ -148,30 +111,6 @@ export default function Footer({ onShowAdmin }: FooterProps) {
               </ul>
             </div>
             
-            {/* Newsletter Signup */}
-            <div>
-              <h4 className="font-semibold text-white mb-4">Stay Updated</h4>
-              <p className="text-slate-400 text-sm mb-4">
-                Receive quarterly updates on our housing project progress.
-              </p>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-                <Input
-                  type="email"
-                  placeholder="Your email address"
-                  {...register("email", { required: true })}
-                  className="bg-slate-800 border-slate-700 text-white placeholder-slate-400 focus:border-church-amber"
-                  data-testid="input-newsletter-email"
-                />
-                <Button 
-                  type="submit" 
-                  disabled={subscribeNewsletter.isPending}
-                  className="w-full bg-church-amber hover:bg-church-amber/90 text-slate-900 font-medium"
-                  data-testid="button-newsletter-signup"
-                >
-                  {subscribeNewsletter.isPending ? "Subscribing..." : "Subscribe"}
-                </Button>
-              </form>
-            </div>
           </div>
         </div>
         
