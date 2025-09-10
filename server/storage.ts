@@ -30,7 +30,7 @@ export class MemStorage implements IStorage {
     currency: "NZD",
     startDate: new Date("2024-01-01"),
     endDate: new Date("2025-12-31"),
-    totalRaised: 5000,
+    totalRaised: 10000,
     onlineTotal: 0,
     offlineTotal: 0,
     donorCount: 0,
