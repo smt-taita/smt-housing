@@ -149,7 +149,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Update the campaign data with the new total raised amount
       const updatedData = await storage.updateCampaignData({
-        totalRaised: amount.toFixed(2)
+        totalRaised: amount
       });
       
       res.json({ 
