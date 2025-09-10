@@ -1,38 +1,6 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import ContactForm from "./contact-form";
 
 export default function ContactSection() {
-  const [showForm, setShowForm] = useState(false);
-
-  if (showForm) {
-    return (
-      <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Get in Touch</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-church-blue to-church-green mx-auto rounded-full mb-6"></div>
-            <p className="text-lg text-slate-700 max-w-2xl mx-auto">
-              Interested in supporting St Matt's Kāinga? We'd love to hear from you and discuss how you can help make a difference.
-            </p>
-          </div>
-
-          <div className="flex justify-center mb-8">
-            <Button 
-              onClick={() => setShowForm(false)}
-              variant="outline"
-              className="border-church-blue text-church-blue hover:bg-church-blue hover:text-white"
-            >
-              ← Back to Contact Options
-            </Button>
-          </div>
-
-          <ContactForm onSuccess={() => setShowForm(false)} />
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,43 +63,49 @@ export default function ContactSection() {
             </Button>
           </div>
 
-          {/* Contact Form Option */}
+          {/* Donation Form Option */}
           <div className="bg-white rounded-xl p-8 shadow-lg">
             <div className="text-center mb-6">
               <div className="bg-church-green bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <i className="fas fa-comments text-church-green text-2xl"></i>
+                <i className="fas fa-hand-holding-heart text-church-green text-2xl"></i>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Send Us a Message</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Donate Now</h3>
               <p className="text-slate-600">
-                Use our contact form to tell us about your interest and we'll get back to you.
+                Use our donation form to make a one-time or regular contribution.
               </p>
             </div>
 
             <div className="space-y-4 mb-6">
               <div className="flex items-center space-x-3">
                 <i className="fas fa-check text-church-green"></i>
-                <span className="text-slate-700">Let us know your donation preferences</span>
+                <span className="text-slate-700">Set up monthly or annual giving</span>
               </div>
               <div className="flex items-center space-x-3">
                 <i className="fas fa-check text-church-green"></i>
-                <span className="text-slate-700">Ask questions about the project</span>
+                <span className="text-slate-700">Make a one-time donation</span>
               </div>
               <div className="flex items-center space-x-3">
                 <i className="fas fa-check text-church-green"></i>
-                <span className="text-slate-700">Get information about regular giving</span>
+                <span className="text-slate-700">Choose your donation amount</span>
               </div>
               <div className="flex items-center space-x-3">
                 <i className="fas fa-check text-church-green"></i>
-                <span className="text-slate-700">We'll respond within 24 hours</span>
+                <span className="text-slate-700">Secure and easy to complete</span>
               </div>
             </div>
 
             <Button 
-              onClick={() => setShowForm(true)}
+              asChild
               className="w-full bg-church-green text-white hover:bg-green-700 transition-colors font-medium"
-              data-testid="button-open-contact-form"
+              data-testid="button-donate-now"
             >
-              <i className="fas fa-paper-plane mr-2"></i>Open Contact Form
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeRgySdjbRm8iVWoHISdlhI7V2pd0zLX2kDIny54VyqHIKfng/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fas fa-heart mr-2"></i>Donate Now
+              </a>
             </Button>
           </div>
         </div>

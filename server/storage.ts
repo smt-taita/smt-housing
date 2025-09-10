@@ -4,11 +4,8 @@ import {
   type CampaignData,
   type InsertCampaignData,
   type CampaignSummary,
-  type ContactSubmission,
-  type InsertContactSubmission,
   donations,
-  campaignData,
-  contactSubmissions
+  campaignData
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc } from "drizzle-orm";
@@ -25,11 +22,6 @@ export interface IStorage {
   updateCampaignData(data: Partial<InsertCampaignData>): Promise<CampaignData>;
   getCampaignSummary(): Promise<CampaignSummary>;
 
-  // Contact submission methods
-  createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
-  getContactSubmissions(): Promise<ContactSubmission[]>;
-  getContactSubmissionById(id: string): Promise<ContactSubmission | undefined>;
-  updateContactSubmissionStatus(id: string, status: "new" | "contacted" | "converted" | "declined", notes?: string): Promise<ContactSubmission>;
 
   // Admin methods
   updateCampaignProgress(): Promise<void>;
@@ -113,38 +105,6 @@ export class DatabaseStorage implements IStorage {
     };
   }
 
-  // Contact submission methods
-  async createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission> {
-    const [created] = await db.insert(contactSubmissions).values(submission).returning();
-    return created;
-  }
-
-  async getContactSubmissions(): Promise<ContactSubmission[]> {
-    return await db.select().from(contactSubmissions).orderBy(desc(contactSubmissions.submittedAt));
-  }
-
-  async getContactSubmissionById(id: string): Promise<ContactSubmission | undefined> {
-    const [submission] = await db.select().from(contactSubmissions).where(eq(contactSubmissions.id, id));
-    return submission;
-  }
-
-  async updateContactSubmissionStatus(
-    id: string,
-    status: "new" | "contacted" | "converted" | "declined",
-    notes?: string
-  ): Promise<ContactSubmission> {
-    const updateData: any = { status };
-    if (notes !== undefined) {
-      updateData.notes = notes;
-    }
-
-    const [updated] = await db.update(contactSubmissions)
-      .set(updateData)
-      .where(eq(contactSubmissions.id, id))
-      .returning();
-
-    return updated;
-  }
 
   // Admin methods
   async updateCampaignProgress(): Promise<void> {
