@@ -49,14 +49,14 @@ export default function HeroSection() {
                 </div>
                 
                 <ProgressBar 
-                  current={7800} 
+                  current={10000} 
                   goal={campaignSummary.goal}
                   className="mb-4"
                 />
                 
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <div className="font-semibold">$7,800</div>
+                    <div className="font-semibold">$10,000</div>
                     <div className="text-blue-100">Raised so far</div>
                   </div>
                   <div>

@@ -70,9 +70,9 @@ export class DatabaseStorage implements IStorage {
         currency: "NZD",
         startDate: new Date("2025-01-01"),
         endDate: new Date("2025-10-31"),
-        totalRaised: "4800.00",
+        totalRaised: "10000.00",
         onlineTotal: "0.00",
-        offlineTotal: "4800.00",
+        offlineTotal: "10000.00",
         donorCount: 5,
         monthlyCommitments: "0.00",
       }).returning();
