@@ -1,8 +1,4 @@
-interface FooterProps {
-  onShowAdmin: () => void;
-}
-
-export default function Footer({ onShowAdmin }: FooterProps) {
+export default function Footer() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -97,15 +93,6 @@ export default function Footer({ onShowAdmin }: FooterProps) {
                     data-testid="button-navigate-impact"
                   >
                     Your Impact
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={onShowAdmin} 
-                    className="hover:text-white transition-colors text-sm block"
-                    data-testid="button-admin"
-                  >
-                    Admin Portal
                   </button>
                 </li>
               </ul>

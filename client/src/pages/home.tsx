@@ -5,14 +5,12 @@ import DonationSection from "@/components/donation-section";
 import ImpactSection from "@/components/impact-section";
 import FaqSection from "@/components/faq-section";
 import ContactSection from "@/components/contact-section";
-import AdminDashboard from "@/components/admin-dashboard";
 import Footer from "@/components/footer";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
-  const [showAdmin, setShowAdmin] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Added mobile menu state
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -140,9 +138,7 @@ export default function Home() {
       <FaqSection />
       <ContactSection />
 
-      {showAdmin && <AdminDashboard onClose={() => setShowAdmin(false)} />}
-
-      <Footer onShowAdmin={() => setShowAdmin(true)} />
+      <Footer />
 
       {/* Sticky Donation Button */}
       <div className="fixed bottom-6 right-6 z-50">
