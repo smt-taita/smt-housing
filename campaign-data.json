@@ -1,0 +1,13 @@
+{
+  "id": "main",
+  "goal": 24000,
+  "currency": "NZD",
+  "startDate": "2024-01-01T00:00:00.000Z",
+  "endDate": "2025-12-31T00:00:00.000Z",
+  "totalRaised": 15000,
+  "onlineTotal": 0,
+  "offlineTotal": 0,
+  "donorCount": 0,
+  "monthlyCommitments": 0,
+  "lastUpdated": "2025-11-07T19:09:38.275Z"
+}

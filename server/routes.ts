@@ -61,6 +61,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get campaign data
+  app.get("/api/campaign/data", async (req, res) => {
+    try {
+      const campaignData = await storage.getCampaignData();
+      res.json(campaignData);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch campaign data" });
+    }
+  });
+
+  // Legacy endpoint alias
   app.get("/api/campaign", async (req, res) => {
     try {
       const campaignData = await storage.getCampaignData();
