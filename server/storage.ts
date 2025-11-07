@@ -28,9 +28,11 @@ export class MemStorage implements IStorage {
   private donations: Donation[] = [];
   private campaignData: CampaignData;
   private readonly dataFilePath = path.join(process.cwd(), "campaign-data.json");
+  private readonly donationsFilePath = path.join(process.cwd(), "donations.json");
 
   constructor() {
-    // Load existing data from file or use defaults
+    // Load existing data from files or use defaults
+    this.donations = this.loadDonations();
     this.campaignData = this.loadCampaignData();
   }
 
@@ -77,6 +79,35 @@ export class MemStorage implements IStorage {
     }
   }
 
+  private loadDonations(): Donation[] {
+    try {
+      if (fs.existsSync(this.donationsFilePath)) {
+        const fileContent = fs.readFileSync(this.donationsFilePath, "utf-8");
+        const data = JSON.parse(fileContent);
+        
+        // Convert date strings back to Date objects
+        return data.map((donation: any) => ({
+          ...donation,
+          createdAt: new Date(donation.createdAt),
+          dateReceived: new Date(donation.dateReceived),
+        }));
+      }
+    } catch (error) {
+      console.error("Error loading donations from file:", error);
+    }
+    
+    return [];
+  }
+
+  private saveDonations(): void {
+    try {
+      const dataToSave = JSON.stringify(this.donations, null, 2);
+      fs.writeFileSync(this.donationsFilePath, dataToSave, "utf-8");
+    } catch (error) {
+      console.error("Error saving donations to file:", error);
+    }
+  }
+
   // Donation methods
   async createDonation(donation: InsertDonation): Promise<Donation> {
     const newDonation: Donation = {
@@ -87,6 +118,7 @@ export class MemStorage implements IStorage {
     };
     
     this.donations.push(newDonation);
+    this.saveDonations();
     await this.updateCampaignProgress();
     return newDonation;
   }
@@ -147,6 +179,9 @@ export class MemStorage implements IStorage {
     this.campaignData.totalRaised = totalRaised;
     this.campaignData.donorCount = donorCount;
     this.campaignData.lastUpdated = new Date();
+    
+    // Save campaign data after updating progress
+    this.saveCampaignData();
   }
 }
 
