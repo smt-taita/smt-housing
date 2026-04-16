@@ -8,8 +8,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Session configuration
+const sessionSecret = process.env.SESSION_SECRET;
+if (!sessionSecret) {
+  throw new Error("SESSION_SECRET env var is required. Set it in .env (local) or host environment (production).");
+}
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'stmatts-2025-session-secret-change-in-production',
+  secret: sessionSecret,
   resave: false,
   saveUninitialized: false,
   cookie: { 
